@@ -1,0 +1,247 @@
+layers:
+  default:
+  - Esc
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - ''
+  - Tab
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - Bspc
+  - Ctrl
+  - {t: A, h: Ctrl}
+  - {t: S, h: Alt}
+  - {t: D, h: Gui}
+  - {t: F, h: Shift}
+  - G
+  - H
+  - {t: J, h: Shift}
+  - {t: K, h: Gui}
+  - {t: L, h: Alt}
+  - {t: ;, h: Ctrl}
+  - ''''
+  - Shift
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - adjust
+  - RGB TOG
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - '`'
+  - Gui
+  - Alt
+  - lower
+  - lower
+  - {t: Spc, h: adjust}
+  - Enter
+  - raise
+  - Ctrl
+  - Alt
+  - Gui
+  lower:
+  - {type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - '`'
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - '*'
+  - (
+  - )
+  - '|'
+  - EP TOG
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Bspc
+  - _
+  - _
+  - {t: '[', right: '{'}
+  - {t: ']', right: '}'}
+  - )
+  - {type: trans}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: trans}
+  - {type: trans}
+  - {t: '[', right: '{'}
+  - {t: ']', right: '}'}
+  - ;
+  - ':'
+  - \
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: held}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  raise:
+  - BT CLR
+  - BT 1
+  - BT 2
+  - BT 3
+  - BT 4
+  - {t: BT, h: '4'}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - Ins
+  - PSCRN
+  - CMENU
+  - {type: trans}
+  - {type: trans}
+  - PgUp
+  - {type: trans}
+  - ↑
+  - {type: trans}
+  - '0'
+  - {type: trans}
+  - {type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - '-'
+  - +
+  - '{'
+  - '}'
+  - Bspc
+  - {type: trans}
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: held}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  adjust:
+  - BT CLR
+  - BT 1
+  - BT 2
+  - BT 3
+  - BT 4
+  - {t: BT, h: '4'}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - EP TOG
+  - RGB HUD
+  - RGB HUI
+  - Mouse ↑
+  - RGB SAI
+  - RGB EFF
+  - ''
+  - Scroll ↓
+  - Scroll ↑
+  - ''
+  - ''
+  - ''
+  - ''
+  - RGB BRD
+  - Mouse ←
+  - Mouse ↓
+  - Mouse →
+  - ''
+  - ←
+  - ↓
+  - ↑
+  - →
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - '&mkp MB1'
+  - '&mkp MB2'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

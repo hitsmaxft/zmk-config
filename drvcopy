@@ -1,0 +1,47 @@
+#!/bin/bash
+# 在 wsl 中， 可以通过以下命令行挂载 盘符 e 到 指定目录， 然后复制 uf2 文件到挂载目录
+#   ❯ sudo mount -t drvfs e: /mnt/imgmount && cp firmware/sofle_left-nice_nano_v2.uf2 /mnt/imgmount
+#当 e 盘符不存在时， 会返回以下异常信息
+# mount: /mnt/imgmount: mount point does not exist.
+# <3>WSL (55657 - ) ERROR: UtilCreateProcessAndWait:688: /bin/mount failed with status 0x2000
+
+#现在，实现一个 shell 脚本， 接受 两个参数， 第一个时盘符， 自动挂载到 /mnt/ 下， 第二个是uf2文件
+#该脚本需要每隔1s检查盘符挂载是否成功，如果不成功，等待下一轮检查，一旦挂载成功，则开始复制文件
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <drive_letter> <uf2_file>"
+    exit 1
+fi
+
+DRIVE_LETTER=$1
+UF2_FILE=$2
+MOUNT_POINT="/mnt/${DRIVE_LETTER}"
+
+while true; do
+
+    if [ ! -d $MOUNT_POINT ]; then
+        sudo mkdir -p $MOUNT_POINT
+    fi
+    sudo mount -t drvfs ${DRIVE_LETTER}: $MOUNT_POINT 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Drive mounted successfully."
+        echo "Sleeping for 3 seconds before copying the file..."
+        sleep 3
+        echo "Copying file..."
+        cp $UF2_FILE $MOUNT_POINT
+
+        if [ $? -ne 0 ]; then
+            echo "File copy failed."
+            sudo umount $MOUNT_POINT
+            exit -1
+        else
+            echo "File copied successfully."
+            sudo umount $MOUNT_POINT
+            exit 0
+        fi
+        exit 0
+    else
+        echo "Mount failed, retrying in 1 second..."
+        sleep 1
+    fi
+done

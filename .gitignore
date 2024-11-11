@@ -1,0 +1,9 @@
+zmk/
+build
+.direnv/
+.build/
+.west/
+modules/
+zephyr/
+zmk-helpers/
+firmware/
