@@ -21,14 +21,13 @@
 / {
     // Activate ADJUST layer by pressing raise and lower
 
-        lh_pht: left_positional_hold_tap {
+        hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-            quick-tap-ms = <200>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 10>;    // <---[[right-hand keys]]
         };
 
     conditional_layers {
@@ -54,7 +53,7 @@
             bindings = <
 &kp ESC   &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &none
 &kp TAB   &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp LCTRL &lh_pht LCTRL A &lh_pht LALT S &lh_pht LGUI D &lh_pht LSHFT F  &kp G                             &kp H &lh_pht RSHFT J    &lh_pht RGUI K &lh_pht RALT L &lh_pht RCTRL SEMI  &kp SQT
+&kp LCTRL &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F  &kp G                             &kp H &hm RSHFT J    &hm RGUI K &hm RALT L &hm RCTRL SEMI  &kp SQT
 &kp LSHFT &kp Z   &kp X     &kp C     &kp V      &kp B      &kp ADJUST    &rgb_ug RGB_TOG  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
                    &kp LGUI  &kp LALT  &kp LCTRL  &mo LOWER  &kp SPACE       &kp RET        &mo RAISE  &kp RCTRL  &kp RALT   &kp RGUI
             >;
