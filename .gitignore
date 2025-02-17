@@ -1,0 +1,7 @@
+zmk/
+build
+.direnv/
+.build/
+.west/
+modules/
+zephyr/
