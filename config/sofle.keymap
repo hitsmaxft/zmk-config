@@ -20,7 +20,7 @@
 
 / {
     // Activate ADJUST layer by pressing raise and lower
-
+    behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -29,6 +29,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
