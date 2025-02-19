@@ -21,7 +21,7 @@
 #define LOWER 1
 #define RAISE 2
 #define ADJUST 3
-//#define DEBUG  4
+#define DEBUG  4
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
@@ -111,22 +111,22 @@
         adjust_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-            // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-            // |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
             // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &none    &none  &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &mmv MOVE_UP  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                     &none    &msc SCRL_DOWN &msc SCRL_UP &none  &none  &none
-&none              &rgb_ug RGB_BRD  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &none                            &kp LEFT &kp DOWN       &kp UP &kp RIGHT &none  &none 
+&mo DEBUG          &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &mmv MOVE_UP  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                     &none    &msc SCRL_DOWN &msc SCRL_UP &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_BRD  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &none                            &kp LEFT &kp DOWN       &kp UP &kp RIGHT &none  &none 
 &none              &none            &none            &none            &none            &none            &none    &none  &mkp MB1 &mkp MB2 &none  &none  &none  &none
                                     &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
             >;
         };
 
 
-/*
+
         debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
@@ -143,7 +143,7 @@
                                     &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
             >;
         };
-*/
+
         extra1 { status = "reserved"; };
 
         extra2 { status = "reserved"; };
