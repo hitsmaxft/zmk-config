@@ -1,7 +1,9 @@
 // Make sure settings.dtsi is included before this file
 
-#define HM_TAPPING_TERM 300
-#define HM_TAPPING_TERM_FAST 200
+// tap windows for ctl alt and gui
+#define HM_TAPPING_TERM 200
+// quick tapping for shift
+#define HM_TAPPING_TERM_FAST 120
 #define HM_PRIOR_IDLE 150
 
 / {

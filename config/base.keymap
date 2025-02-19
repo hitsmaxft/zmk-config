@@ -21,7 +21,8 @@
 #define LOWER 1
 #define RAISE 2
 #define ADJUST 3
-#define DEBUG  4
+#define NAVI   4
+#define DEBUG  5
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
@@ -62,8 +63,8 @@
 &kp ESC   &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &none
 &kp TAB   &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
 &kp LCTRL &hm_l LCTRL A &hm_l LALT S &hm_l LGUI D &hm_shift_l LSHFT F  &kp G               &kp H &hm_shift_r RSHFT J    &hm_r RGUI K &hm_r RALT L &hm_r RCTRL SEMI  &kp SQT
-&kp LSHFT &kp Z   &kp X     &kp C     &kp V      &kp B      &mo ADJUST  &rgb_ug RGB_TOG  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
-&kp LGUI  &kp LALT   &mo LOWER  &mo LOWER   &lt ADJUST SPACE       &kp RET   &mo RAISE  &kp RCTRL  &kp RALT   &kp RGUI
+&kp LSHFT &kp Z   &kp X     &kp C     &kp V      &kp B         &mo NAVI &rgb_ug RGB_TOG &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
+&kp LGUI  &kp LALT   &kp TAB &mo LOWER   &lt NAVI SPACE   &kp RET     &mo RAISE       &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -71,7 +72,7 @@
 
         lower_layer {
             // TODO: Some binds are waiting for shifted keycode support.
-            // ------------------------------------------------------------------------------------------------------------
+            // -------------------------------
             // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  F12  |
             // |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   |   |
@@ -81,7 +82,7 @@
             bindings = <
 &trans             &kp F1     &kp F2     &kp F3    &kp F4    &kp F5                       &kp F6     &kp F7    &kp F8     &kp F9     &kp F10   &kp F11
 &kp GRAVE          &kp EXCL   &kp AT     &kp HASH  &kp DLLR  &kp PRCNT                    &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&ext_power EP_TOG  &none      &none      &none     &none     &none                        &kp BSPC   &kp UNDER &kp UNDER &kp LBKT    &kp RBKT  &kp RPAR
+&ext_power EP_TOG  &none      &none      &none     &none     &none                        &kp BSPC   &kp UNDER &kp PLUS   &kp LBKT    &kp RBKT  &kp RPAR
 &trans             &none      &none      &none     &none     &none      &trans    &trans  &kp LBKT   &kp RBKT  &kp SEMI   &kp COLON  &kp BSLH  &trans
                               &trans     &trans    &trans    &trans     &trans    &trans  &trans     &trans    &trans     &trans
             >;
@@ -100,8 +101,8 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &trans
 &trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
-&trans      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6    &kp MINUS &kp PLUS &kp LBRC &kp RBRC &kp BSPC
-&trans      &kp F7        &kp F8        &kp F9        &kp F10       &kp F11      &trans    &trans   &trans     &trans    &trans    &trans     &trans   &trans
+&trans      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6     &kp MINUS &kp EQUAL &kp LBRC   &kp RBRC &kp BSPC
+&trans      &kp F7        &kp F8        &kp F9        &kp F10       &kp F11      &trans    &trans   &kp F12    &trans    &trans    &trans     &trans   &trans
                           &trans        &trans        &trans        &trans       &trans    &trans   &trans     &trans    &trans    &trans
             >;
 
@@ -118,14 +119,30 @@
 
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &none    &none  &none  &none  &none  &none
-&mo DEBUG          &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &mmv MOVE_UP  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                     &none    &msc SCRL_DOWN &msc SCRL_UP &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_BRD  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &none                            &kp LEFT &kp DOWN       &kp UP &kp RIGHT &none  &none 
+&mo DEBUG          &none            &none            &mmv MOVE_UP     &kp PAGE_UP      &kp PAGE_DOWN                    &none    &msc SCRL_DOWN &msc SCRL_UP &none  &none  &none
+&none              &none            &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                            &kp LEFT &kp DOWN       &kp UP &kp RIGHT &none  &none 
 &none              &none            &none            &none            &none            &none            &none    &none  &mkp MB1 &mkp MB2 &none  &none  &none  &none
                                     &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
             >;
         };
 
 
+        nav_layer {
+            // ----------------------------------------------------------------------------------------------------------------------------
+            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+            //                    |         |         |         |         |         | |      |      |      |       |      |
+
+            bindings = <
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &none    &none  &none  &none  &none  &none
+&mo DEBUG          &none            &none            &mmv MOVE_UP     &kp PAGE_UP      &kp PAGE_DOWN                    &none    &msc SCRL_DOWN &msc SCRL_UP &none  &none  &none
+&none              &none            &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                            &kp LEFT &kp DOWN       &kp UP &kp RIGHT &none  &none 
+&none              &none            &none            &none            &none            &none            &none    &none  &mkp MB1 &mkp MB2 &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
+            >;
+        };
 
         debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
@@ -136,11 +153,11 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &none  &none  &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                  &none  &none  &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                            &kp LEFT &kp DOWN &kp UP &kp RIGHT &none  &none
-&none              &none            &none            &none            &none            &none            &none    &none  &none  &none  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                             &none       &none  &none  &none  &none  &none
+&none              &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none                                    &none       &none  &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none                                    &none       &none  &none  &none  &none  &none
+&rgb_ug RGB_TOG    &rgb_ug RGB_TOG  &none            &none            &none            &bootloader  &sys_reset &sys_reset       &bootloader    &none  &none  &none  &none  &none
+                                    &none            &none            &none            &none        &none    &none              &none  &none  &none  &none
             >;
         };
 
