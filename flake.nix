@@ -37,7 +37,6 @@
 
               pkgs.just
               pkgs.yq # Make sure yq resolves to python-yq.
-              pkgs.pico-dfu
 
               keymap_drawer
 
