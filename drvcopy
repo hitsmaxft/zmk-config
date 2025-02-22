@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # 在 wsl 中， 可以通过以下命令行挂载 盘符 e 到 指定目录， 然后复制 uf2 文件到挂载目录
 #   ❯ sudo mount -t drvfs e: /mnt/imgmount && cp firmware/sofle_left-nice_nano_v2.uf2 /mnt/imgmount
@@ -26,6 +25,7 @@ while true; do
     sudo mount -t drvfs ${DRIVE_LETTER}: $MOUNT_POINT 2>/dev/null
     if [ $? -eq 0 ]; then
         echo "Drive mounted successfully."
+        sleep 3
         cp $UF2_FILE $MOUNT_POINT
 
         if [ $? -ne 0 ]; then

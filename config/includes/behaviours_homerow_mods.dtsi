@@ -1,11 +1,11 @@
 // Make sure settings.dtsi is included before this file
 
 // tap windows for ctl alt and gui
-#define HM_TAPPING_TERM 200
+#define HM_TAPPING_TERM 180
 #define HM_TAPPING_REPEAT 210
 // quick tapping for shift
-#define HM_TAPPING_TERM_FAST 170
-#define HM_PRIOR_IDLE 150
+#define HM_TAPPING_TERM_FAST 150
+#define HM_PRIOR_IDLE 130
 
 / {
 
@@ -59,13 +59,14 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
+            //flavor = "balanced";
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <125>;
+            quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
 
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            // hold-trigger-on-release;
+            hold-trigger-on-release;
         };
 
         hm_shift_r: hm_shift_r {
@@ -75,11 +76,13 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <125>;
+            quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
 
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            // hold-trigger-on-release;
+
+            // for quick tapping; shift+~
+            hold-trigger-on-release;
         };
 
         /*
