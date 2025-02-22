@@ -23,6 +23,7 @@
 #define ADJUST 3
 #define NAVI   4
 #define DEBUG  5
+#define NUM    6
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
@@ -60,11 +61,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC   &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &none
-&kp TAB   &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp LCTRL &hm_l LCTRL A &hm_l LALT S &hm_l LGUI D &hm_shift_l LSHFT F  &kp G               &kp H &hm_shift_r RSHFT J    &hm_r RGUI K &hm_r RALT L &hm_r RCTRL SEMI  &kp SQT
-&kp LSHFT &kp Z   &kp X     &kp C     &kp V      &kp B         &mo NAVI &rgb_ug RGB_TOG &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
-&kp LGUI  &kp LALT   &mo LOWER      &mo BKSPC    &lt NAVI SPACE         &kp RET     &kp SPACE &mo RAISE  &kp RALT   &kp RGUI
+&kp ESC   &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
+&kp ESC   &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB   &hm_l LCTRL A &hm_l LALT S &hm_l LGUI D &hm_shift_l LSHFT F  &kp G               &kp H &hm_shift_r RSHFT J    &hm_r RGUI K &hm_r RALT L &hm_r RCTRL SEMI  &kp SQT
+&kp LCTRL &kp Z   &kp X     &kp C     &kp V       &kp B         &mo NAVI &rgb_ug RGB_TOG &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
+          &kp CAPS &kp LALT &mo LOWER &lt NUM ESC &lt NAVI SPACE         &kp RET     &kp BSPC &mo RAISE  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -161,6 +162,22 @@
             >;
         };
 
+        num_layer {
+            // ----------------------------------------------------------------------------------------------------------------------------
+            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+            //                    |         |         |         |         |         | |      |      |      |       |      |
+
+            bindings = <
+                           &trans     &trans    &trans    &trans     &trans   &trans                                    &kp N7 &kp N8 &kp N9 &trans &trans &trans
+&mo DEBUG          &none            &none            &none            &none            &none                            &kp N4 &kp N5 &kp N6 &none  &none  &none
+&none              &none            &none            &none            &none            &none                            &kp N1 &kp N2 &kp N3 &none  &none  &none
+&none              &none            &none            &none            &none            &none            &none    &none  &kp N0 &kp N0 &kp N0 &none  &none  &none
+                                    &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
+            >;
+        };
         extra1 { status = "reserved"; };
 
         extra2 { status = "reserved"; };
