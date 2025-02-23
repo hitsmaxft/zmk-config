@@ -25,7 +25,9 @@ while true; do
     sudo mount -t drvfs ${DRIVE_LETTER}: $MOUNT_POINT 2>/dev/null
     if [ $? -eq 0 ]; then
         echo "Drive mounted successfully."
+        echo "Sleeping for 3 seconds before copying the file..."
         sleep 3
+        echo "Copying file..."
         cp $UF2_FILE $MOUNT_POINT
 
         if [ $? -ne 0 ]; then
