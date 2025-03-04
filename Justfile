@@ -137,3 +137,6 @@ test $testpath *FLAGS:
 
 build-left:
     @just build sofle_left
+
+flash-left:
+    pico-dfu -y ./firmware/sofle_left-nice_nano_v2.uf2
