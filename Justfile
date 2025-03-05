@@ -135,8 +135,14 @@ test $testpath *FLAGS:
         cp ${build_dir}/keycode_events.log ${config_dir}/keycode_events.snapshot
     fi
 
-build-left:
+build-corne-left:
+    @just build corne_left
+
+flash-corne-left:
+    pico-dfu -y ./firmware/corne_left-nice_nano_v2.uf2
+
+build-sofle-left:
     @just build sofle_left
 
-flash-left:
+flash-sofle-left:
     pico-dfu -y ./firmware/sofle_left-nice_nano_v2.uf2
