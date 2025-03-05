@@ -5,6 +5,7 @@ config := absolute_path('config')
 build := absolute_path('.build')
 out := absolute_path('firmware')
 draw := absolute_path('draw')
+kb := absolute_path('kb')
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
@@ -81,12 +82,13 @@ clean-nix:
     nix-collect-garbage --delete-old
 
 # parse & plot keymap
-draw:
+draw keyboard: 
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/corne.keymap" --virtual-layers Combos >"{{ draw }}/corne.yaml"
-    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/corne.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/corne.yaml" -k "ferris/sweep" >"{{ draw }}/corne.svg"
+    keymap -c "{{ draw }}/config-{{ keyboard }}.yaml" parse -z "{{ config }}/{{ keyboard }}.keymap" --virtual-layers Combos >"{{ draw }}/{{ keyboard }}.yaml"
+    #kboard := `yq -r '.layout."qmk_keyboard"' tmp/{{ keyboard }}.yaml) `
+    #yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/{{ keyboard }}.yaml"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/{{ keyboard }}.yaml" -k "$(yq -r '.layout."qmk_keyboard"' {{ draw }}/{{ keyboard }}.yaml)" >"{{ draw }}/{{ keyboard }}.svg"
 
 # initialize west
 init:
@@ -146,3 +148,15 @@ build-sofle-left:
 
 flash-sofle-left:
     pico-dfu -y ./firmware/sofle_left-nice_nano_v2.uf2
+
+
+gen-png:
+    #!/usr/bin/env bash
+    cd ${{ draw }}
+    for svg in $(ls *.svg) 
+    do
+        echo "output $svg"
+        convert $svg ${svg/svg/png}
+    done
+
+
