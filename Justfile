@@ -158,7 +158,7 @@ flash-corne_left: (_flash_kb "corne_left")
 
 gen-png:
     #!/usr/bin/env bash
-    cd ${{ draw }}
+    cd {{ draw }}
     for svg in $(ls *.svg) 
     do
         echo "found $svg, convert to png."
