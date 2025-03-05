@@ -193,10 +193,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR          &kp PRCNT  &kp CARET        &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&none      &none     &none   &none     &none             &kp TAB    &kp BSPC         &kp UNDER  &kp PLUS   &none      &none     &none
-&trans     &none     &none   &none     &kp LEFT_BRACKET  &kp LBRC   &kp RIGHT_BRACE  &kp RBKT   &kp SEMI   &kp COLON  &kp BSLH  &trans
-                             &kp ESC   &trans            &trans     &kp BSPC         &trans     &trans
+&kp ESCAPE  &kp EXCL  &kp AT  &kp HASH          &kp DLLR          &kp PRCNT  &kp CARET        &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
+&none       &none     &none   &kp LEFT_BRACKET  &kp LBRC          &kp TAB    &kp BSPC         &kp UNDER  &kp PLUS   &none      &none     &none
+&trans      &none     &none   &none             &kp LEFT_BRACKET  &kp LBRC   &kp RIGHT_BRACE  &kp RBKT   &kp SEMI   &kp COLON  &kp BSLH  &trans
+                              &none             &trans            &trans     &kp BSPC         &trans     &trans
             >;
         };
 
