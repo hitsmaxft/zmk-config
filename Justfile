@@ -6,6 +6,7 @@ build := absolute_path('.build')
 out := absolute_path('firmware')
 draw := absolute_path('draw')
 kb := absolute_path('kb')
+flashCmd := if `uname` == 'Darwin' { "pico-dfu -y" } else {"drvcopy e"}
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
@@ -137,17 +138,22 @@ test $testpath *FLAGS:
         cp ${build_dir}/keycode_events.log ${config_dir}/keycode_events.snapshot
     fi
 
-build-corne-left:
-    @just build corne_left
 
-flash-corne-left:
-    pico-dfu -y ./firmware/corne_left-nice_nano_v2.uf2
+_build_kb target: (build target)
 
-build-sofle-left:
-    @just build sofle_left
+_flash_kb target:
+    #!/usr/bin/env bash
+    UF=`ls ./firmware/{{ target }}*.uf2 | head -1`
+    echo "flash {{target}} with $UF"
+    {{flashCmd}} ${UF}
 
-flash-sofle-left:
-    pico-dfu -y ./firmware/sofle_left-nice_nano_v2.uf2
+build-corne_left: (_build_kb "corne_left")
+
+build-sofle_left: (_build_kb "sofle_left")
+
+flash-sofle_left: (_flash_kb "sofle_left")
+
+flash-corne_left: (_flash_kb "corne_left")
 
 
 gen-png:
@@ -155,7 +161,7 @@ gen-png:
     cd ${{ draw }}
     for svg in $(ls *.svg) 
     do
-        echo "output $svg"
+        echo "found $svg, convert to png."
         convert $svg ${svg/svg/png}
     done
 
