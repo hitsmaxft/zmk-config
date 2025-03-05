@@ -86,9 +86,9 @@ draw keyboard:
     #!/usr/bin/env bash
     set -euo pipefail
     keymap -c "{{ draw }}/config-{{ keyboard }}.yaml" parse -z "{{ config }}/{{ keyboard }}.keymap" --virtual-layers Combos >"{{ draw }}/{{ keyboard }}.yaml"
-    #kboard := `yq -r '.layout."qmk_keyboard"' tmp/{{ keyboard }}.yaml) `
+    KBOARD=`yq -r '.layout."qmk_keyboard"' {{ draw }}/{{ keyboard }}.yaml`
     #yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/{{ keyboard }}.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/{{ keyboard }}.yaml" -k "$(yq -r '.layout."qmk_keyboard"' {{ draw }}/{{ keyboard }}.yaml)" >"{{ draw }}/{{ keyboard }}.svg"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/{{ keyboard }}.yaml" -k "${KBOARD}" >"{{ draw }}/{{ keyboard }}.svg"
 
 # initialize west
 init:
