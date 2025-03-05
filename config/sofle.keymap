@@ -276,10 +276,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&trans     &trans  &trans          &trans          &trans           &kp PAGE_UP                    &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_DOWN  &msc SCRL_UP  &none
-&mo DEBUG  &none   &none           &mmv MOVE_UP    &none            &kp PAGE_DOWN                  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT       &none         &none
-&none      &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                          &trans    &trans    &none     &none           &none         &none
-&none      &none   &none           &none           &none            &none          &none    &none  
+&trans     &trans  &trans          &trans          &trans           &kp PAGE_UP                    &trans    &trans    &none     &none          &none         &none
+&mo DEBUG  &none   &none           &mmv MOVE_UP    &none            &kp PAGE_DOWN                  &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_UP   &msc SCRL_DOWN&none
+&none      &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT      &none         &none
+&none      &none   &none           &none           &none            &none          &none    &none  &trans    &trans    &none     &none          &none         &none
                    &none           &none           &none            &none          &none    &none  &none     &none           &none         &none
             >;
         };
