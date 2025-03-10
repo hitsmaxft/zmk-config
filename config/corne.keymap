@@ -225,10 +225,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4  &tog OSL  &to OSL  &none  &none  &none  &tog OSL
-&none         &none         &none         &none              &none         &sys_reset    &none     &none    &none  &none  &none  &ext_power EP_ON
-&kp CAPSLOCK  &none         &none         &none              &none         &sys_reset    &none     &none    &none  &none  &none  &ext_power EP_ON
-                                          &ext_power EP_OFF  &none         &none         &none     &none    &none
+&none         &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none            &tog OSL  &to OSL  &none  &none  &none  &tog OSL
+&rgb_ug RGB_TOG &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR     &none       &none    &none  &none  &none  &ext_power EP_ON
+&kp CAPSLOCK  &none         &none         &none              &none         &sys_reset              &none     &none    &none  &none  &none  &ext_power EP_ON
+                                          &ext_power EP_OFF  &none         &none                   &none     &none    &none
             >;
         };
 
@@ -251,16 +251,17 @@
         debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-            // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | BTCLR | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
             // |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
             // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none        &none        &none  &none  &none  &none  &none
-&none            &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none        &none        &none  &none  &none  &none  &none
-&rgb_ug RGB_TOG  &rgb_ug RGB_TOG  &none            &none            &none            &bootloader  &bootloader  &none  &none  &none  &none  &none
-                                                   &none            &none            &none        &none        &none  &none
+
+&none    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3               &bt BT_SEL 4          &none        &none  &none  &none  &none  &none
+&none    &bt BT_CLR    &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR            &none                 &none        &none  &none  &none  &none  &none
+&none    &none         &none            &none            &none                      &bootloader           &bootloader  &none  &none  &none  &none  &none
+                                        &none            &none                      &none                 &none        &none  &none
             >;
         };
 
