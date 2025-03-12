@@ -155,6 +155,21 @@
             bindings = <&kp LBRC>;
             key-positions = <16 15>;
         };
+
+        cb_esc {
+            bindings = <&kp ESC>;
+            key-positions = <0 1>;
+        };
+
+        cb_tab {
+            bindings = <&kp TAB>;
+            key-positions = <4 5>;
+        };
+
+        cb_rbrc {
+            bindings = <&kp RBRC>;
+            key-positions = <19 20>;
+        };
     };
 
     keymap {
