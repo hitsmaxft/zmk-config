@@ -218,8 +218,8 @@
 
             bindings = <
 &none   &kp EXCL  &kp AT  &kp HASH          &kp DLLR          &kp PRCNT  &kp CARET        &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&none   &none     &none   &kp LEFT_BRACKET  &kp LBRC          &kp TAB    &kp BSPC         &kp UNDER  &kp PLUS   &kp LBKT   &kp RBKT  &trans
-&trans  &none     &none   &none             &kp LEFT_BRACKET  &kp LBRC   &kp RIGHT_BRACE  &kp RBKT   &kp SEMI   &kp COLON  &kp PIPE  &trans
+&none   &none     &none   &kp LEFT_BRACKET  &kp LBRC          &kp LPAR   &kp RPAR         &kp RIGHT_BRACE  &kp RBKT  &kp MINUS &kp EQUAL &trans
+&trans  &none     &none   &none             &kp LEFT_BRACKET  &kp LBRC   &kp MINUS &kp EQUAL &kp UNDER &kp PLUS &trans  &trans
                           &none             &trans            &trans     &kp BSPC         &trans     &trans
             >;
         };
