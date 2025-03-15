@@ -40,6 +40,7 @@
               pkgs.tio
 
               keymap_drawer
+              pkgs.clang-tools
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
               # pkgs.gawk
