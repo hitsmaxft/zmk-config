@@ -200,9 +200,9 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB   &kp Q          &kp W         &kp E          &kp R                &kp T           &kp Y    &kp U                &kp I          &kp O         &kp P             &kp BSLH
-&kp ESC   &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G           &kp H    &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&kp LGUI  &kp Z          &kp X         &kp C          &kp V                &kp B           &kp N    &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp GRAVE
+&trans     &trans    &trans  &trans    &trans            &trans                                         &trans     &trans     &trans     &trans    &trans    &trans
+&trans     &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                      &trans      &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
+&kp LGUI   &trans    &trans  &trans    &trans            &trans                     &trans     &trans     &trans     &trans    &trans    &trans
                                        &kp TAB        &mo LOWER            &lt NAVI SPACE  &kp RET  &mo RAISE            &kp BSPC
             >;
         };
