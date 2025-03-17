@@ -155,6 +155,8 @@ flash-sofle_left: (_flash_kb "sofle_left")
 
 flash-corne_left: (_flash_kb "corne_left")
 
+sofle_left: build-sofle_left flash-sofle_left
+    @echo "ok"
 
 gen-png:
     #!/usr/bin/env bash
