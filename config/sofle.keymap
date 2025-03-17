@@ -218,13 +218,13 @@
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-
+// ------------------------------------------------------------------------------------------------------------ lower layer
         lower_layer {
             bindings = <
 &trans     &trans    &trans  &trans    &trans            &trans                         &trans     &trans     &trans     &trans    &trans    &trans
 &kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR          &kp PRCNT                      &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none      &none     &kp LPAR   &kp LEFT_BRACKET  &kp LBRC  &none                       &kp RPAR   &kp RBRC  &kp  RBKT   &kp RPAR  &none     &none
-&trans     &none     &none   &none     &none             &none      &trans    &trans    &none    &kp UNDER  &kp PLUS   &kp LBKT  &kp RBKT  &trans
+&none      &none     &kp LPAR &kp LBKT &kp LBRC  &none                                  &kp COLON  &kp RBRC   &kp RBKT   &kp RPAR  &kp PIPE   &none
+&trans     &none     &none   &none     &none             &kp FSLH      &trans    &trans &kp BSLH   &kp GRAVE  &kp TILDE  &kp FSLH  &kp BSLH  &trans
                      &trans  &trans    &kp ESC           &trans     &trans    &kp BSPC  &trans     &trans     &trans     &trans
             >;
 
