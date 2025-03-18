@@ -86,9 +86,11 @@ clean-nix:
 draw keyboard: 
     #!/usr/bin/env bash
     set -euo pipefail
+    echo "generated yaml"     
     keymap -c "{{ draw }}/config-{{ keyboard }}.yaml" parse -z "{{ config }}/{{ keyboard }}.keymap" --virtual-layers Combos >"{{ draw }}/{{ keyboard }}.yaml"
     KBOARD=`yq -r '.layout."qmk_keyboard"' {{ draw }}/{{ keyboard }}.yaml`
     #yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/{{ keyboard }}.yaml"
+    echo "generated svg"     
     keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/{{ keyboard }}.yaml" -k "${KBOARD}" >"{{ draw }}/{{ keyboard }}.svg"
 
 # initialize west
