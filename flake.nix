@@ -43,7 +43,7 @@
               pkgs.tio
 
               # poetry build error
-              #keymap_drawer
+              keymap_drawer
               pkgs.clang-tools
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
