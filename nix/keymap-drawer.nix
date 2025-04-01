@@ -31,7 +31,7 @@ buildPythonApplication rec {
 
   postPatch = ''
     # nixos-unstable no longer bundles v23 of tree-sitter
-    substituteInPlace pyproject.toml --replace 'tree-sitter = "^0.23.2"' 'tree-sitter = "^0.23"'
+    substituteInPlace pyproject.toml --replace 'tree-sitter (>=0.23.2,<0.24.0)' 'tree-sitter (>=0.23.2,<0.25.0)'
 
   '';
 

@@ -14,19 +14,27 @@
     zephyr-nix.url = "github:adisbladis/zephyr-nix";
     zephyr-nix.inputs.zephyr.follows = "zephyr";
     zephyr-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    keymap_drawer-nix = {
+      url = "github:hitsmaxft/keymap-drawer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, zephyr-nix, ... }:
+  outputs = { nixpkgs, zephyr-nix, keymap_drawer-nix, ... }:
     let
       systems =
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
+
       devShells = forAllSystems (system:
         let
+          keymap-drawer = keymap_drawer-nix.packages.${system}.default;
+
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
-          keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
+          #keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
         in {
           default = pkgs.mkShellNoCC {
             packages = [
@@ -43,7 +51,7 @@
               pkgs.tio
 
               # poetry build error
-              keymap_drawer
+              keymap-drawer
               pkgs.clang-tools
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
