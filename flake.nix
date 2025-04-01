@@ -1,14 +1,17 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     # This pins requirements.txt provided by zephyr-nix.pythonEnv.
-    zephyr.url =
-      "github:zmkfirmware/zephyr/0fa4cc26d8b1e5243570ccc0f7f66c4c428d2961";
+    #zephyr.url = "github:zmkfirmware/zephyr";
+    zephyr.url = "github:zephyrproject-rtos/zephyr/v3.5.0";
     zephyr.flake = false;
+    # zephyr.inputs.nixpkgs.follows = "nixpkgs";
 
     # Zephyr sdk and toolchain.
-    zephyr-nix.url = "github:urob/zephyr-nix";
+    #zephyr-nix.url = "github:urob/zephyr-nix";
+    zephyr-nix.url = "github:adisbladis/zephyr-nix";
     zephyr-nix.inputs.zephyr.follows = "zephyr";
     zephyr-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -23,11 +26,11 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
-          keymap_drawer =
-            pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
+          keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
         in {
           default = pkgs.mkShellNoCC {
             packages = [
+              pkgs.gcovr
               zephyr.pythonEnv
               (zephyr.sdk-0_16.override { targets = [ "arm-zephyr-eabi" ]; })
 
@@ -39,7 +42,8 @@
               pkgs.yq # Make sure yq resolves to python-yq.
               pkgs.tio
 
-              keymap_drawer
+              # poetry build error
+              #keymap_drawer
               pkgs.clang-tools
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
