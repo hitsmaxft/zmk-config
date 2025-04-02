@@ -30,11 +30,11 @@
 
       devShells = forAllSystems (system:
         let
-          keymap-drawer = keymap_drawer-nix.packages.${system}.default;
 
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
-          #keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
+          keymap_drawer = keymap_drawer-nix.packages.${system}.default;
+          #keymap_drawer = pkgs.python312Packages.callPackage ./nix/keymap-drawer.nix { };
         in {
           default = pkgs.mkShellNoCC {
             packages = [
@@ -51,7 +51,7 @@
               pkgs.tio
 
               # poetry build error
-              keymap-drawer
+              keymap_drawer
               pkgs.clang-tools
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --

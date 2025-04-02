@@ -3,7 +3,6 @@
 , buildPythonPackage
 , callPackage
 , fetchFromGitHub
-, setuptools
 , poetry-core
 , pydantic
 , pcpp
@@ -23,16 +22,15 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "caksoylar";
     repo = pname;
-    rev="a2a3b37c54ddb449428b4597b39c3c28b331a7da";
-    #rev = "ea00f44ac5a2ebe97b8b31f9166791bedf9136e5";
-    #hash = "sha256-F9lDUuqHKl2FOUsUszJrRK7/a/a1UJLw+RUg9Bv2zN0=";
-    hash = "sha256-GKGjEHQ/GsLhCzjuglDuztAEIpeaz+fHHmNJJcLmQT8=";
+    rev = "ea00f44ac5a2ebe97b8b31f9166791bedf9136e5";
+    hash = "sha256-F9lDUuqHKl2FOUsUszJrRK7/a/a1UJLw+RUg9Bv2zN0=";
+    #rev="a2a3b37c54ddb449428b4597b39c3c28b331a7da";
+    #hash = "sha256-GKGjEHQ/GsLhCzjuglDuztAEIpeaz+fHHmNJJcLmQT8=";
   };
 
   postPatch = ''
     # nixos-unstable no longer bundles v23 of tree-sitter
-    substituteInPlace pyproject.toml --replace 'tree-sitter (>=0.23.2,<0.24.0)' 'tree-sitter (>=0.23.2,<0.25.0)'
-
+    substituteInPlace pyproject.toml --replace-fail  'tree-sitter (>=0.23.2,<0.24.0)' 'tree-sitter (>=0.23.2,<0.25.0)'
   '';
 
   build-system = [ poetry-core ];
