@@ -219,7 +219,7 @@
             bindings = <
 &none   &kp EXCL  &kp AT    &kp HASH          &kp DLLR          &kp PRCNT  &kp CARET        &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
 &none   &none     &kp LBKT  &kp LBRC &kp RBRC  &kp RBKT         &kp PIPE &kp LPAR &kp RPAR    &kp LBKT  &kp RBKT &trans
-&trans  &none     &none   &none      &kp QMAR &kp FSLH          &kp BSLH &kp GRAVE  &kp TILD &kp LBRC &kp RBRC  &trans
+&trans  &none     &none   &none      &none &kp FSLH          &kp BSLH &kp GRAVE  &kp TILD &kp LBRC &kp RBRC  &trans
 
                           &none             &trans            &trans     &kp BSPC         &trans     &trans
             >;
