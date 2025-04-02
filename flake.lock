@@ -29,11 +29,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1743503436,
+        "lastModified": 1743504525,
         "narHash": "sha256-T45U8HJQJvSh2Cp1qpTehi/6Tbg3emyeOJB1388D7Dw=",
         "owner": "hitsmaxft",
         "repo": "keymap-drawer",
-        "rev": "bab3e7a9ac2360329d483bc678d670bb91fce6c4",
+        "rev": "4d9bb062a440a735f363d9b390a3057e333fb017",
         "type": "github"
       },
       "original": {
