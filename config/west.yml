@@ -4,10 +4,47 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: petejohanson
       url-base: https://github.com/petejohanson
+    - name: gpeye
+      url-base: https://github.com/GPeye
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
+    - name: kevinpastor
+      url-base: https://github.com/kevinpastor
+    - name: m165437
+      url-base: https://github.com/M165437
+    - name: s6t
+      url-base: https://github.com/s6t
+    - name: infely
+      url-base: https://github.com/infely
+    - name: urob
+      url-base: https://github.com/urob
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: hammerbeam-slideshow
+      remote: gpeye
+      revision: main
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: main
+    - name: nice-view-elemental
+      remote: kevinpastor
+      revision: main
+    - name: nice-view-gem
+      remote: m165437
+      revision: main
+    - name: zmk-shield-nice-view-cats
+      remote: s6t
+      revision: main
+    - name: nice-view-battery
+      remote: infely
+      revision: main
+    - name: zmk-helpers
+      remote: urob
+      revision: main
   self:
     path: config
