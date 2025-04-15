@@ -243,10 +243,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp ESC  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5   &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &trans
-&kp F1   &kp F2  &kp F3  &kp F4   &kp F5   &kp F6   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp BSPC  &none
-&kp F7   &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
-                         &trans   &trans   &kp TAB  &trans     &trans     &trans
+&kp TAB  &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
+&kp ESC  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT  &kp F12
+&kp CAPS &kp N6  &kp N7  &kp N8   &kp N9   &kp N0   &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
+                         &trans   &trans  &kp TAB  &trans     &trans     &trans
             >;
         };
 
