@@ -158,7 +158,7 @@
 
         cb_lbrc {
             bindings = <&kp LBRC>;
-            key-positions = <28 29>;
+            key-positions = <16 17>;
         };
 
         cb_esc {
@@ -173,7 +173,7 @@
 
         cb_rbrc {
             bindings = <&kp RBRC>;
-            key-positions = <30 31>;
+            key-positions = <18 19>;
         };
 
         cb_enter {
