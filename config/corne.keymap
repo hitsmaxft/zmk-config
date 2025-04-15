@@ -163,7 +163,7 @@
 
         cb_esc {
             bindings = <&kp ESC>;
-            key-positions = <15 16>;
+            key-positions = <15 14>;
         };
 
         cb_tab {
@@ -178,7 +178,7 @@
 
         cb_enter {
             bindings = <&kp RET>;
-            key-positions = <19 20>;
+            key-positions = <20 21>;
         };
     };
 
@@ -194,10 +194,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB   &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y     &kp U                &kp I         &kp O         &kp P             &kp BSLH
-&kp ESC   &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H     &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&kp CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N     &kp M                &kp COMMA     &kp DOT       &kp FSLH          &kp GRAVE
-                                       &lt 7 TAB     &mo LOWER            &lt NAVI SPACE  &kp BSPC  &mo RAISE            &kp RET
+&kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y     &kp U                &kp I         &kp O         &kp P             &kp BSLH
+&kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H     &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
+&mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N     &kp M                &kp COMMA     &kp DOT       &kp FSLH          &kp GRAVE
+                                                  &lt 7 TAB     &mo LOWER            &lt NAVI SPACE  &kp BSPC  &mo RAISE            &kp RET
             >;
         };
 
@@ -243,10 +243,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp TAB  &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp ESC  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT  &kp F12
-&kp CAPS &kp N6  &kp N7  &kp N8   &kp N9   &kp N0   &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
-                         &trans   &trans  &kp TAB  &trans     &trans     &trans
+&kp TAB   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
+&kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
+&kp CAPS  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
+                          &trans  &trans  &kp TAB  &trans     &trans     &trans
             >;
         };
 
