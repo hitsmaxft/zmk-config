@@ -202,12 +202,12 @@
 
         esc {
             bindings = <&kp ESC>;
-            key-positions = <28 29>;
+            key-positions = <28 27>;
         };
 
         cb_tab {
             bindings = <&kp TAB>;
-            key-positions = <15 16>;
+            key-positions = <15 14>;
         };
     };
 
