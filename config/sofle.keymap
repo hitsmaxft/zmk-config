@@ -197,7 +197,7 @@
 
         ret {
             bindings = <&kp RET>;
-            key-positions = <31 32>;
+            key-positions = <31 33>;
         };
 
         esc {
@@ -227,7 +227,7 @@
 &kp TAB   &kp Q          &kp W         &kp E         &kp R                &kp T                                         &kp Y      &kp U                &kp I         &kp O         &kp P             &kp BSLH
 &kp ESC   &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &lt NUM G                                     &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
 &kp LGUI  &kp Z          &kp X         &kp C         &kp V                &kp B      &tog 1            &rgb_ug RGB_TOG  &kp N      &kp M                &kp COMMA     &kp DOT       &kp FSLH          &kp GRAVE
-                         &kp CAPS      &lt NUM ESC   &lt NUM TAB          &mo LOWER  &lt NAVI SPACE    &kp BSPC         &mo RAISE  &kp RET              &kp MINUS     &kp EQUAL
+                         &kp CAPS      &lt NUM ESC   &lt NUM TAB          &mo LOWER  &lt NAVI SPACE    &kp ENTER        &mo RAISE  &kp BACKSPACE        &kp MINUS     &kp EQUAL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -249,11 +249,11 @@
 
         lower_layer {
             bindings = <
-&trans     &trans    &trans    &trans    &trans    &trans                        &trans     &trans     &trans     &trans    &trans    &trans
-&kp GRAVE  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none      &none     &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT                      &none      &kp LPAR   &kp RPAR   &kp RBKT  &kp PIPE  &none
-&trans     &none     &none     &none     &none     &kp FSLH   &trans    &trans   &kp BSLH   &kp GRAVE  &kp TILDE  &kp FSLH  &kp BSLH  &trans
-                     &trans    &trans    &kp ESC   &trans     &trans    &kp RET  &trans     &trans     &trans     &trans
+&trans     &trans    &trans    &trans    &trans    &trans                              &trans     &trans     &trans     &trans    &trans    &trans
+&kp GRAVE  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
+&none      &none     &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT                            &none      &kp LPAR   &kp RPAR   &kp RBKT  &kp PIPE  &none
+&trans     &none     &none     &none     &none     &kp FSLH   &trans    &trans         &kp BSLH   &kp GRAVE  &kp TILDE  &kp FSLH  &kp BSLH  &trans
+                     &trans    &trans    &kp ESC   &trans     &trans    &kp BACKSPACE  &trans     &trans     &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -261,11 +261,11 @@
 
         raise_layer {
             bindings = <
-&trans   &trans  &trans  &trans  &trans   &trans                      &trans     &trans     &trans     &trans    &trans   &trans
-&kp F11  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                      &kp F6     &kp F7     &kp F8     &kp F9    &kp F10  &none
-&none    &kp N1  &kp N2  &kp N3  &kp N4   &kp N5                      &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &trans
-&kp F12  &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &trans     &none   &kp RET    &kp UNDER  &kp PLUS   &trans    &kp SQT  &trans
-                 &trans  &trans  &kp F11  &kp F12  &kp TAB    &trans  &trans     &trans     &trans     &trans
+&trans   &trans  &trans  &trans  &trans   &trans                      &trans         &trans     &trans     &trans    &trans   &trans
+&kp F11  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                      &kp F6         &kp F7     &kp F8     &kp F9    &kp F10  &none
+&none    &kp N1  &kp N2  &kp N3  &kp N4   &kp N5                      &kp UNDER      &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &trans
+&kp F12  &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &trans     &none   &kp BACKSPACE  &kp UNDER  &kp PLUS   &trans    &kp SQT  &trans
+                 &trans  &trans  &kp F11  &kp F12  &kp TAB    &trans  &trans         &trans     &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -305,7 +305,6 @@
             >;
         };
 
-
         num_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
@@ -322,6 +321,7 @@
                 &none   &none   &none   &none   &none    &kp KP_N0  &kp KP_DOT  &none      &none      &none
             >;
         };
+
         debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
