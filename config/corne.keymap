@@ -158,27 +158,27 @@
 
         cb_lbrc {
             bindings = <&kp LBRC>;
-            key-positions = <16 17>;
+            key-positions = <5 4>;
         };
 
         cb_esc {
             bindings = <&kp ESC>;
-            key-positions = <15 14>;
+            key-positions = <14 16>;
         };
 
         cb_tab {
             bindings = <&kp TAB>;
-            key-positions = <4 3>;
+            key-positions = <1 2>;
         };
 
         cb_rbrc {
             bindings = <&kp RBRC>;
-            key-positions = <18 19>;
+            key-positions = <6 7>;
         };
 
         cb_enter {
             bindings = <&kp RET>;
-            key-positions = <20 21>;
+            key-positions = <21 19>;
         };
     };
 
@@ -194,10 +194,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y     &kp U                &kp I         &kp O         &kp P             &kp BSLH
-&kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H     &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N     &kp M                &kp COMMA     &kp DOT       &kp FSLH          &kp GRAVE
-                                                  &lt 7 TAB     &mo LOWER            &lt NAVI SPACE  &kp BSPC  &mo RAISE            &kp RET
+&kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp BSLH
+&kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
+&mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp GRAVE
+                                                  &lt 7 TAB     &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
             >;
         };
 
@@ -227,10 +227,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none  &none     &kp LBKT  &kp LBRC  &kp RBRC   &kp RBKT   &kp PIPE   &kp LPAR   &kp RPAR   &kp LBKT  &kp RBKT  &trans
-&none  &none     &none     &none     &kp QMARK  &kp FSLH   &kp BSLH   &kp GRAVE  &kp TILD   &kp LBRC  &kp RBRC  &trans
-                           &none     &trans     &trans     &kp RET    &trans     &trans
+&none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET      &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
+&none  &none     &kp LBKT  &kp LBRC  &kp RBRC   &kp RBKT   &kp PIPE       &kp LPAR   &kp RPAR   &kp LBKT  &kp RBKT  &trans
+&none  &none     &none     &none     &kp QMARK  &kp FSLH   &kp BSLH       &kp GRAVE  &kp TILD   &kp LBRC  &kp RBRC  &trans
+                           &none     &trans     &trans     &kp BACKSPACE  &trans     &trans
             >;
         };
 
@@ -291,10 +291,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4  &none        &none  &none  &none  &none  &none
-&none  &bt BT_CLR    &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none         &none        &none  &none  &none  &none  &none
-&none  &none         &none            &none            &none            &bootloader   &bootloader  &none  &none  &none  &none  &none
-                                      &none            &none            &none         &none        &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none        &none  &none  &none  &none  &none
+&none       &none         &none         &none         &none         &none         &none        &none  &none  &none  &none  &none
+&none       &none         &none         &none         &none         &bootloader   &bootloader  &none  &none  &none  &none  &none
+                                        &none         &none         &none         &none        &none  &none
             >;
         };
 
