@@ -20,7 +20,7 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 70
 #define BASE 0
-#define OSL 1
+#define WIN 1
 #define LOWER 2
 #define RAISE 3
 #define ADJUST 4
@@ -159,26 +159,31 @@
         cb_lbrc {
             bindings = <&kp LBRC>;
             key-positions = <5 4>;
+            layers = <BASE WIN>;
         };
 
         cb_esc {
             bindings = <&kp ESC>;
             key-positions = <14 16>;
+            layers = <BASE WIN>;
         };
 
         cb_tab {
             bindings = <&kp TAB>;
             key-positions = <1 2>;
+            layers = <BASE WIN>;
         };
 
         cb_rbrc {
             bindings = <&kp RBRC>;
             key-positions = <6 7>;
+            layers = <BASE WIN>;
         };
 
         cb_enter {
             bindings = <&kp RET>;
             key-positions = <21 19>;
+            layers = <BASE WIN>;
         };
     };
 
@@ -244,8 +249,8 @@
 
             bindings = <
 &kp TAB   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
-&kp CAPS  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
+&kp ESC   &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
+&kp CAPS  &kp N0  &kp N9  &kp N8  &kp N7  &kp N6   &kp BSPC   &trans     &trans     &trans     &trans    &trans
                           &trans  &trans  &kp TAB  &trans     &trans     &trans
             >;
         };
@@ -260,7 +265,7 @@
 
             bindings = <
 &bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4  &none     &none    &none  &none  &none             &none
-&none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none         &tog OSL  &to OSL  &none  &none  &none             &tog OSL
+&none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none         &tog WIN  &to WIN  &none  &none  &none             &tog WIN
 &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none         &none     &none    &none  &none  &ext_power EP_ON  &kp CAPSLOCK
                                                    &none            &none            &none         &none     &none    &none
             >;
