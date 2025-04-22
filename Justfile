@@ -6,7 +6,7 @@ build := absolute_path('.build')
 out := absolute_path('firmware')
 draw := absolute_path('draw')
 kb := absolute_path('kb')
-flashCmd := if `uname` == 'Darwin' { "pico-dfu -y" } else {"drvcopy e"}
+flashCmd := if `uname` == 'Darwin' { "pico-dfu -y" } else {"nix/drvcopy e"}
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
