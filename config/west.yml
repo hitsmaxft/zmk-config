@@ -20,6 +20,8 @@ manifest:
       url-base: https://github.com/urob
     - name: petejohanson
       url-base: https://github.com/petejohanson
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -45,6 +47,9 @@ manifest:
       revision: main
     - name: zmk-helpers
       remote: urob
+      revision: main
+    - name: zmk-feature-status-led
+      remote: sekigon-gonnoc
       revision: main
   self:
     path: config

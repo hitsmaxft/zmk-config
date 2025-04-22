@@ -20,13 +20,13 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 70
 #define BASE 0
-#define OSL 1
+#define WIN 1
 #define LOWER 2
 #define RAISE 3
 #define ADJUST 4
 #define NAVI   5
-#define DEBUG  6
-#define NUM    7
+#define NUM    6
+#define DEBUG  7
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
@@ -143,42 +143,53 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <2 3>;
-            then-layer = <4>;
+            if-layers = <RAISE LOWER>;
+            then-layer = <ADJUST>;
         };
 
-        debug {
-            if-layers = <5 7>;
-            then-layer = <6>;
-        };
+        // debug {
+        //     if-layers = <NAVI NUM>;
+        //     then-layer = <DEBUG>;
+        // };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        cb_lbrc {
-            bindings = <&kp LBRC>;
-            key-positions = <5 4>;
+        cb_ltm {
+            bindings = <&kp ESC>;
+            key-positions = <2 3>;
+            layers = <BASE WIN>;
         };
 
-        cb_esc {
-            bindings = <&kp ESC>;
+        cb_ltr {
+            bindings = <&kp LBRC>;
+            key-positions = <3 4>;
+            layers = <BASE WIN>;
+        };
+
+        cb_lm {
+            bindings = <&kp TAB>;
             key-positions = <14 16>;
+            layers = <BASE WIN>;
         };
 
         cb_tab {
             bindings = <&kp TAB>;
             key-positions = <1 2>;
+            layers = <BASE WIN>;
         };
 
         cb_rbrc {
             bindings = <&kp RBRC>;
             key-positions = <6 7>;
+            layers = <BASE WIN>;
         };
 
         cb_enter {
             bindings = <&kp RET>;
             key-positions = <21 19>;
+            layers = <BASE WIN>;
         };
     };
 
@@ -197,7 +208,7 @@
 &kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp BSLH
 &kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
 &mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp GRAVE
-                                                  &lt 7 TAB     &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
+                                                  &lt NUM TAB     &mo LOWER  &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
             >;
         };
 
@@ -213,7 +224,7 @@
 &trans    &trans         &trans        &trans         &trans               &trans          &trans   &trans               &trans         &trans        &trans            &trans
 &trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans          &trans   &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
 &kp LGUI  &trans         &trans        &trans         &trans               &trans          &trans   &trans               &trans         &trans        &trans            &trans
-                                       &kp TAB        &mo LOWER            &lt NAVI SPACE  &kp RET  &trans               &trans
+                                       &trans         &trans            &lt NAVI SPACE  &kp RET  &trans               &trans
             >;
         };
 
@@ -228,9 +239,9 @@
 
             bindings = <
 &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET      &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none  &none     &kp LBKT  &kp LBRC  &kp RBRC   &kp RBKT   &kp PIPE       &kp LPAR   &kp RPAR   &kp LBKT  &kp RBKT  &trans
-&none  &none     &none     &none     &kp QMARK  &kp FSLH   &kp BSLH       &kp GRAVE  &kp TILD   &kp LBRC  &kp RBRC  &trans
-                           &none     &trans     &trans     &kp BACKSPACE  &trans     &trans
+&none  &none     &kp LBKT  &kp LBRC  &kp RBRC   &kp RBKT   &kp UNDER      &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT   &trans
+&none  &none     &none     &kp PIPE  &kp QMARK  &kp FSLH   &kp BSLH       &kp GRAVE  &kp TILD   &kp LBRC  &kp RBRC  &trans
+                           &none     &trans     &trans     &kp BACKSPACE  &trans     &kp N2
             >;
         };
 
@@ -243,10 +254,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp TAB   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
-&kp CAPS  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &none      &none      &kp SLASH  &kp BSLH  &none
-                          &trans  &trans  &kp TAB  &trans     &trans     &trans
+&trans    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
+&trans    &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
+&trans    &kp N0  &kp N9  &kp N8  &kp N7  &kp N6   &kp BSPC   &kp INS    &kp HOME   &kp END    &trans    &trans
+                          &trans  &trans  &kp DOT  &trans     &trans     &kp N3
             >;
         };
 
@@ -260,9 +271,9 @@
 
             bindings = <
 &bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4  &none     &none    &none  &none  &none             &none
-&none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none         &tog OSL  &to OSL  &none  &none  &none             &tog OSL
-&rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none         &none     &none    &none  &none  &ext_power EP_ON  &kp CAPSLOCK
-                                                   &none            &none            &none         &none     &none    &none
+&none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &none         &tog WIN  &to BASE    &none  &none  &none             &tog WIN
+&bt BT_CLR_ALL   &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFR  &none         &none     &none    &none  &none  &ext_power EP_ON  &kp CAPSLOCK
+                                                   &none            &none            &none         &none     &none    &kp N4
             >;
         };
 
@@ -278,9 +289,26 @@
 &none  &none  &none           &mmv MOVE_UP    &kp PAGE_UP      &kp PAGE_DOWN  &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN  &none
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
 &none  &none  &none           &none           &none            &none          &trans    &trans    &none     &none         &none           &none
-                              &none           &none            &none          &none     &none     &none
+                              &mo DEBUG       &trans           &trans          &none     &none     &kp N5
             >;
         };
+
+        num_layer {
+            // ----------------------------------------------------------------------------------------------------------------------------
+            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+            //                    |         |         |         |         |         | |      |      |      |       |      |
+
+            bindings = <
+&mo DEBUG  &none  &none  &none  &none  &none     &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
+&none      &none  &none  &none  &none  &none     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
+&none      &none  &none  &none  &none  &none     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none  &none  &none
+                         &none  &none  &mo DEBUG &kp KP_N0        &none            &kp N6
+            >;
+        };
+
 
         debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
@@ -294,23 +322,7 @@
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none        &none  &none  &none  &none  &none
 &none       &none         &none         &none         &none         &none         &none        &none  &none  &none  &none  &none
 &none       &none         &none         &none         &none         &bootloader   &bootloader  &none  &none  &none  &none  &none
-                                        &none         &none         &none         &none        &none  &none
-            >;
-        };
-
-        num_layer {
-            // ----------------------------------------------------------------------------------------------------------------------------
-            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
-            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
-            //                    |         |         |         |         |         | |      |      |      |       |      |
-
-            bindings = <
-&mo DEBUG  &none  &none  &none  &none  &none  &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
-&none      &none  &none  &none  &none  &none  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
-&none      &none  &none  &none  &none  &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none  &none  &none
-                         &none  &none  &none  &kp KP_N0        &none            &none
+                                        &none         &none         &none         &none        &none  &kp N7
             >;
         };
 

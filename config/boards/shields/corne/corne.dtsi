@@ -42,6 +42,36 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6)  RC(2,7) RC(2,8) RC(2,9
 			, <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
     };
+    //example https://github.com/Eloy98/le_chiff_ble_config/blob/bae029b82ab80ed76802f3c6b844ac68310fc50d/config/boards/arm/le_chiff_ble/le_chiff_ble.dts#L40
+    // wakeup_scan: wakeup_scan {
+    //     compatible = "zmk,kscan-gpio-direct";
+    //     input-keys = <&soft_off_gpio_key>;
+    //     wakeup-source;
+    // };
+    // soft_off_wakers {
+    //     compatible = "zmk,soft-off-wakeup-sources";
+    //     wakeup-sources = <&wakeup_scan>;
+    // };
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&kscan0>;
+    };
+
+    // {{{ led status start
+    // Add a LED node here if not already defined by the board
+        leds {
+            compatible = "gpio-leds";
+            status_led: status_led {
+                gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+            };
+        };
+        
+        status_led_device: status_led_device {
+            compatible = "zmk,status-led";
+            //led = <&status_led>;
+            led = <&blue_led>;
+        };
+    // }}} led status 
 };
 // oled,I2c
 &pinctrl {

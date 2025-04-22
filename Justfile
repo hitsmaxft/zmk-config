@@ -50,6 +50,8 @@ _build_single $board $shield $snippet *west_args:
     build_dir="{{ build / '$artifact' }}"
 
     echo "Building firmware for $artifact..."
+    echo "Running" west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
+        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
     west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
 
@@ -113,6 +115,7 @@ list:
 # update west
 update:
     west update --fetch-opt=--filter=blob:none
+    west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" 
 
 # upgrade zephyr-sdk and python dependencies
 upgrade-sdk:
@@ -169,13 +172,13 @@ sofle_left: build-sofle_left flash-sofle_left
 
 corne_left: build-corne_left flash-corne_left
     @echo "ok"
-gen-png:
+
+draw-png target: (draw target)
     #!/usr/bin/env bash
     cd {{ draw }}
-    for svg in $(ls *.svg) 
+    for svg in $(ls {{ target }}.svg) 
     do
         echo "found $svg, convert to png."
-        convert $svg ${svg/svg/png}
+        echo "running convert $svg ${svg/svg/png}"
+        convert $svg ${svg/svg/png}  2>&1 | grep -iq ERROR || true
     done
-
-

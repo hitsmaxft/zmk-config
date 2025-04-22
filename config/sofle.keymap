@@ -20,7 +20,7 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 70
 #define BASE 0
-#define OSL 1
+#define WIN 1
 #define LOWER 2
 #define RAISE 3
 #define ADJUST 4
@@ -198,16 +198,19 @@
         ret {
             bindings = <&kp RET>;
             key-positions = <31 33>;
+            layers = <BASE WIN>;
         };
 
         esc {
             bindings = <&kp ESC>;
             key-positions = <26 28>;
+            layers = <BASE WIN>;
         };
 
         cb_tab {
             bindings = <&kp TAB>;
             key-positions = <13 14>;
+            layers = <BASE WIN>;
         };
     };
 
@@ -251,8 +254,8 @@
             bindings = <
 &trans     &trans    &trans    &trans    &trans    &trans                              &trans     &trans     &trans     &trans    &trans    &trans
 &kp GRAVE  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none      &none     &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT                            &none      &kp LPAR   &kp RPAR   &kp RBKT  &kp PIPE  &none
-&trans     &none     &none     &none     &none     &kp FSLH   &trans    &trans         &kp BSLH   &kp GRAVE  &kp TILDE  &kp FSLH  &kp BSLH  &trans
+&none      &none     &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT                            &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT   &none
+&trans     &none     &none     &kp PIPE  &kp QMARK &kp FSLH   &trans    &trans         &kp BSLH   &kp GRAVE  &kp TILDE  &kp FSLH  &kp BSLH  &trans
                      &trans    &trans    &kp ESC   &trans     &trans    &kp BACKSPACE  &trans     &trans     &trans     &trans
             >;
 
@@ -262,10 +265,10 @@
         raise_layer {
             bindings = <
 &trans   &trans  &trans  &trans  &trans   &trans                      &trans         &trans     &trans     &trans    &trans   &trans
-&kp F11  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                      &kp F6         &kp F7     &kp F8     &kp F9    &kp F10  &none
-&none    &kp N1  &kp N2  &kp N3  &kp N4   &kp N5                      &kp UNDER      &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &trans
-&kp F12  &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &trans     &none   &kp BACKSPACE  &kp UNDER  &kp PLUS   &trans    &kp SQT  &trans
-                 &trans  &trans  &kp F11  &kp F12  &kp TAB    &trans  &trans         &trans     &trans     &trans
+&kp F11  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                      &kp F6         &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
+&none    &kp N5  &kp N4  &kp N3  &kp N2   &kp N1                      &kp UNDER      &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&kp F12  &kp N0  &kp N9  &kp N8  &kp N7   &kp N6   &trans     &none   &kp BACKSPACE  &kp INS    &kp HOME   &kp END   &kp SQT  &trans
+                 &trans  &trans  &trans   &kp DOT  &kp TAB    &trans  &trans         &trans     &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -280,10 +283,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                       &to OSL  &to BASE  &none  &none  &none  &tog OSL
+&bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                       &to WIN  &to BASE  &none  &none  &none  &tog WIN
 &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD    &rgb_ug RGB_EFF  &none         &none                              &none    &none     &none  &none  &none  &none
 &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI    &rgb_ug RGB_EFR  &none         &none                              &none    &none     &none  &none  &none  &rgb_ug RGB_TOG
-&none            &none            &none              &none            &none         &none         &sys_reset    &none  &none    &none     &none  &none  &none  &ext_power EP_ON
+&bt BT_CLR_ALL   &none            &none              &none            &none         &none         &sys_reset    &none  &none    &none     &none  &none  &none  &ext_power EP_ON
                                   &ext_power EP_OFF  &none            &none         &none         &none         &none  &none    &none     &none  &none
             >;
         };
@@ -299,8 +302,8 @@
             bindings = <
 &trans  &trans  &trans          &trans          &trans           &kp PAGE_UP                    &trans    &trans    &none     &none         &none           &none
 &none   &none   &none           &mmv MOVE_UP    &none            &kp PAGE_DOWN                  &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN  &none
-&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
-&none   &none   &none           &none           &none            &none          &none    &none  &trans    &trans    &none     &none         &none           &none
+&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp HOME                      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
+&none   &none   &none           &none           &none            &kp END        &none    &none  &trans    &trans    &none     &none         &none           &none
                 &none           &none           &mo DEBUG        &none          &none    &none  &none     &none     &none     &none
             >;
         };
@@ -331,7 +334,7 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4                            &tog OSL     &to OSL  &none  &none  &none  &none
+&bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4                            &tog WIN     &to WIN  &none  &none  &none  &none
 &none            &rgb_ug RGB_HUD  &rgb_ug RGB_HUI   &rgb_ug RGB_SAD    &rgb_ug RGB_EFF  &none                                   &none        &none    &none  &none  &none  &none
 &none            &rgb_ug RGB_BRD  &rgb_ug RGB_BRI   &rgb_ug RGB_SAI    &rgb_ug RGB_EFR  &none                                   &none        &none    &none  &none  &none  &none
 &rgb_ug RGB_TOG  &rgb_ug RGB_TOG  &none             &none              &none            &bootloader   &sys_reset    &sys_reset  &bootloader  &none    &none  &none  &none  &none

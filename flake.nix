@@ -44,6 +44,7 @@
               pkgs.just
               pkgs.yq # Make sure yq resolves to python-yq.
               pkgs.tio
+              #pkgs.svgexport
 
               # poetry build error
               keymap_drawer

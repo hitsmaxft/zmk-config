@@ -40,6 +40,10 @@ config LV_DPI_DEF
 config LV_Z_BITS_PER_PIXEL
     default 1
 
+## status led
+config ZMK_STATUS_LED
+    default y
+
 choice LV_COLOR_DEPTH
     default LV_COLOR_DEPTH_1
 endchoice
