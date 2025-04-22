@@ -1,9 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/e3e32b642a31e6714ec1b712de8c91a3352ce7e1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # This pins requirements.txt provided by zephyr-nix.pythonEnv.
-    zephyr.url = "github:zmkfirmware/zephyr/v3.5.0+zmk-fixes";
+    zephyr.url = "github:zephyrproject-rtos/zephyr/v3.7.0";
+
     zephyr.flake = false;
 
     # Zephyr sdk and toolchain.

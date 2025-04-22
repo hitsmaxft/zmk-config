@@ -65,17 +65,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1741513245,
-        "narHash": "sha256-7rTAMNTY1xoBwz0h7ZMtEcd8LELk9R5TzBPoHuhNSCk=",
+        "lastModified": 1744932701,
+        "narHash": "sha256-fusHbZCyv126cyArUwwKrLdCkgVAIaa/fQJYFlCEqiU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e3e32b642a31e6714ec1b712de8c91a3352ce7e1",
+        "rev": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "rev": "e3e32b642a31e6714ec1b712de8c91a3352ce7e1",
         "type": "github"
       }
     },
@@ -201,16 +201,16 @@
     "zephyr": {
       "flake": false,
       "locked": {
-        "lastModified": 1738456065,
-        "narHash": "sha256-lRAKi/8jZ70N2X00QI/0TpPglRP2O+MyM+2BcnQcPM0=",
-        "owner": "zmkfirmware",
+        "lastModified": 1721992675,
+        "narHash": "sha256-rmOHH0uRU27U2T4w4+FEMcAcuiZ7W7p4vOwtSwiAFNY=",
+        "owner": "zephyrproject-rtos",
         "repo": "zephyr",
-        "rev": "0fa4cc26d8b1e5243570ccc0f7f66c4c428d2961",
+        "rev": "36940db938a8f4a1e919496793ed439850a221c2",
         "type": "github"
       },
       "original": {
-        "owner": "zmkfirmware",
-        "ref": "v3.5.0+zmk-fixes",
+        "owner": "zephyrproject-rtos",
+        "ref": "v3.7.0",
         "repo": "zephyr",
         "type": "github"
       }
@@ -227,11 +227,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741651001,
-        "narHash": "sha256-9Kzy6T9Nf/tawsN/p7wDfGFwIVENXB1eQGxApesA03E=",
+        "lastModified": 1743611519,
+        "narHash": "sha256-K9cA1igLWVnqM703cM5lEXoGSgKBAaPUnnfFsJo+XLM=",
         "owner": "urob",
         "repo": "zephyr-nix",
-        "rev": "64f41b21bd58f1246b50c2a7d0679dfdb3f087d6",
+        "rev": "3069faffa3692fc54a555c986c3a0d647bf5d7d0",
         "type": "github"
       },
       "original": {
