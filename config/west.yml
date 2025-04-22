@@ -20,8 +20,8 @@ manifest:
       url-base: https://github.com/urob
     - name: petejohanson
       url-base: https://github.com/petejohanson
-    - name: sekigon-gonnoc
-      url-base: https://github.com/sekigon-gonnoc
+    - name: hitsmaxft
+      url-base: https://github.com/hitsmaxft
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -49,7 +49,7 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-feature-status-led
-      remote: sekigon-gonnoc
+      remote: hitsmaxft
       revision: main
   self:
     path: config
