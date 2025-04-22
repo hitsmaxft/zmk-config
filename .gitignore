@@ -1,10 +1,8 @@
-!./draw/*
-!./draw/
 *
-!config
-!nix
-!.github
-!.west
+.west
+!config/*
+!nix/*
+!draw/*
+!.github/*
 !.envrc
 !.gitignore
-.west
