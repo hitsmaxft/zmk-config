@@ -52,7 +52,7 @@
               # poetry build error
               keymap_drawer
               clang-tools
-              ctags
+              #ctags
 
             ];
 

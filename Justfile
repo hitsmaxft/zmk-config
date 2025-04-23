@@ -7,6 +7,8 @@ out := absolute_path('firmware')
 draw := absolute_path('draw')
 kb := absolute_path('kb')
 flashCmd := if `uname` == 'Darwin' { "pico-dfu -y" } else {"nix/drvcopy e"}
+#zmkbase := $(find  . -maxdepth  2  -iname zmk)
+zmk := 'zmodules/zmk'
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
@@ -50,9 +52,9 @@ _build_single $board $shield $snippet *west_args:
     build_dir="{{ build / '$artifact' }}"
 
     echo "Building firmware for $artifact..."
-    echo "Running" west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
+    echo "Running" west build -s {{zmk}}/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
-    west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
+    west build -s {{zmk}}/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
@@ -135,7 +137,7 @@ test $testpath *FLAGS:
     if [[ "{{ FLAGS }}" != *"--no-build"* ]]; then
         echo "Running $testcase..."
         rm -rf "$build_dir"
-        west build -s zmk/app -d "$build_dir" -b native_posix_64 -- \
+        west build -s {{zmk}}/app -d "$build_dir" -b native_posix_64 -- \
             -DCONFIG_ASSERT=y -DZMK_CONFIG="$config_dir"
     fi
 

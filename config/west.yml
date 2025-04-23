@@ -26,28 +26,37 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       revision: main
+      clone-depth: 1
       import: app/west.yml
+      path: zmodules/zmk
     - name: hammerbeam-slideshow
       remote: gpeye
       revision: main
+      path: zmodules/hammerbeam-slideshow
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
+      path: zmodules/zmk-nice-oled
     - name: nice-view-elemental
       remote: kevinpastor
       revision: main
+      path: zmodules/nice-view-elemental
     - name: nice-view-gem
       remote: m165437
       revision: main
+      path: zmodules/nice-view-gem
     - name: zmk-shield-nice-view-cats
       remote: s6t
       revision: main
+      path: zmodules/zmk-shield-nice-view-cats
     - name: nice-view-battery
       remote: infely
       revision: main
+      path: zmodules/nice-view-battery
     - name: zmk-helpers
       remote: urob
       revision: main
+      path: zmodules/zmk-helpers
     - name: zmk-feature-status-led
       remote: hitsmaxft
       revision: main
