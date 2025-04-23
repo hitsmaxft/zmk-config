@@ -64,6 +64,8 @@ _build_single $board $shield $snippet *west_args:
     fi
     mkdir -p "{{ out }}" && cp "$build_output" "$build_artifact"
     echo "$build_output saved to $build_artifact"
+    cp $build_dir/compile_commands.json ./
+    echo "copy clangd db json from $build_dir/compile_commands.json"
 
 # build firmware for matching targets
 build expr *west_args: _parse_combos

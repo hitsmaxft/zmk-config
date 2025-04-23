@@ -30,26 +30,29 @@
 
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
+          zephyrPyEnv = zephyr-nix.packages.${system}.pythonEnv;
           keymap_drawer = keymap_drawer-nix.packages.${system}.default;
         in {
           default = pkgs.mkShellNoCC {
-            packages = [
-              pkgs.gcovr
-              zephyr.pythonEnv
+            packages = with pkgs; [
+              gcovr
+
+              zephyrPyEnv
               (zephyr.sdk-0_16.override { targets = [ "arm-zephyr-eabi" ]; })
 
-              pkgs.cmake
-              pkgs.dtc
-              pkgs.ninja
+              cmake
+              dtc
+              ninja
 
-              pkgs.just
-              pkgs.yq # Make sure yq resolves to python-yq.
-              pkgs.tio
+              just
+              yq # Make sure yq resolves to python-yq.
+              tio
               #pkgs.svgexport
 
               # poetry build error
               keymap_drawer
-              pkgs.clang-tools
+              clang-tools
+              ctags
 
             ];
 

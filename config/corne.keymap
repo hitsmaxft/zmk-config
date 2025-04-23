@@ -211,7 +211,7 @@
             >;
         };
 
-        lower_layer {
+        Symbol_layer {
             // TODO: Some binds are waiting for shifted keycode support.
             // -------------------------------
             // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
@@ -228,7 +228,7 @@
             >;
         };
 
-        raise_layer {
+        Mix_layer {
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
             // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
@@ -244,7 +244,7 @@
             >;
         };
 
-        adjust_layer {
+        Adjust_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -260,7 +260,7 @@
             >;
         };
 
-        nav_layer {
+        Navi_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -276,7 +276,7 @@
             >;
         };
 
-        num_layer {
+        KeyPad_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -293,7 +293,7 @@
         };
 
 
-        debug_layer {
+        Debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | EXTPWR | BTCLR | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -308,13 +308,5 @@
                                         &none         &none         &none         &none        &none  &kp N7
             >;
         };
-
-        extra1 { status = "reserved"; };
-
-        extra2 { status = "reserved"; };
-
-        extra3 { status = "reserved"; };
-
-        extra4 { status = "reserved"; };
     };
 };
