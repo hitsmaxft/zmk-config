@@ -19,7 +19,6 @@
 
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 70
-
 #define BASE 0
 #define WIN 1
 #define LOWER 2
@@ -35,23 +34,18 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right hand
 #define THUMBS LH1 LH0 RH0 RH1
 #define KEYS_T LH1 LH0 RH0 RH1
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
-
-
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
-
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/rgb.h>
 
 / {
     // Activate ADJUST layer by pressing raise and lower
 
     behaviors {
-
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -157,7 +151,6 @@
             layers = <BASE WIN>;
         };
 
-
         cb_lm {
             bindings = <&kp TAB>;
             key-positions = <14 16>;
@@ -183,10 +176,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp BSLH
-&kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp GRAVE
-                                                  &lt NUM TAB     &mo LOWER  &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
+&kp TAB              &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp GRAVE
+&kp ESC              &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp BACKSPACE
+&mt LEFT_SHIFT CAPS  &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp MINUS         &kp EQUAL
+                                                  &lt NUM TAB   &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
             >;
         };
 
@@ -202,7 +195,7 @@
 &trans    &trans         &trans        &trans         &trans               &trans          &trans   &trans               &trans         &trans        &trans            &trans
 &trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans          &trans   &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
 &kp LGUI  &trans         &trans        &trans         &trans               &trans          &trans   &trans               &trans         &trans        &trans            &trans
-                                       &trans         &trans            &lt NAVI SPACE  &kp RET  &trans               &trans
+                                       &trans         &trans               &lt NAVI SPACE  &kp RET  &trans               &trans
             >;
         };
 
@@ -232,10 +225,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&trans    &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS   &kp DQT   &kp F12
-&trans    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &kp INS    &kp HOME   &kp END    &trans    &trans
-                          &trans  &trans  &kp DOT  &trans     &trans     &kp N3
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
+&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &kp INS    &kp HOME   &kp END   &trans   &trans
+                        &trans  &trans  &kp DOT  &trans     &trans     &kp N3
             >;
         };
 
@@ -248,10 +241,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4  &none     &none    &none  &none  &none             &none
-&none            &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4 &tog WIN  &to BASE    &none  &none  &none             &tog WIN
-&bt BT_CLR_ALL   &none            &none            &none            &none            &none         &none     &none    &none  &none  &ext_power EP_ON  &kp CAPSLOCK
-                                                   &none            &none            &none         &none     &none    &kp N4
+&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &none     &none     &none   &none  &none             &none
+&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &tog WIN  &to BASE  &none   &none  &none             &tog WIN
+&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &none     &none     &none   &none  &ext_power EP_ON  &kp CAPSLOCK
+                                              &none          &none          &none          &none     &none     &kp N4
             >;
         };
 
@@ -266,13 +259,12 @@
 
         KeyPad_layer {
             bindings = <
-&mo DEBUG  &none  &none  &none  &none  &none     &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
-&none      &none  &none  &none  &none  &none     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
-&none      &none  &none  &none  &none  &none     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none  &none  &none
-                         &none  &none  &mo DEBUG &kp KP_N0        &none            &kp N6
+&mo DEBUG  &none  &none  &none  &none  &none      &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
+&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
+&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none  &none  &none
+                         &none  &none  &mo DEBUG  &kp KP_N0        &none            &kp N6
             >;
         };
-
 
         Debug_layer {
             // ----------------------------------------------------------------------------------------------------------------------------
@@ -283,9 +275,9 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none        &none  &none  &none  &none  &none
-&none       &none         &none         &none         &none         &none         &none        &none  &none  &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &bootloader  &none  &none  &none  &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &bootloader   &bootloader  &none  &none   &none  &none  &none
                                         &none         &none         &none         &none        &none  &kp N7
             >;
         };
