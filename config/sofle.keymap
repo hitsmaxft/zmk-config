@@ -27,7 +27,7 @@
 #define NAVI   5
 #define NUM    6
 #define DEBUG  7
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
