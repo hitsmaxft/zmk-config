@@ -7,9 +7,10 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
 ## status led
-config ZMK_STATUS_LED
-    default y
+#config ZMK_STATUS_LED
+#    default n
 endif
+
 
 if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
 
