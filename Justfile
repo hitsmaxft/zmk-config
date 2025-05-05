@@ -165,6 +165,8 @@ _flash_kb target:
 
 build-corne_left: (_build_kb "corne_left")
 
+build-corne_right: (_build_kb "corne_right")
+
 build-sofle_left: (_build_kb "sofle_left")
 
 flash-sofle_left: (_flash_kb "sofle_left")
