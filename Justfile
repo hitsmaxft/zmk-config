@@ -158,7 +158,6 @@ test $testpath *FLAGS:
 _build_kb target: (build target)
 
 _flash_kb target:
-    // find newst mtime file to flash
     #!/usr/bin/env bash
     UF=`ls -t ./firmware/{{ target }}*.uf2 | head -1`
     echo "flash {{target}} with $UF"
