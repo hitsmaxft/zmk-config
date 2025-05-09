@@ -189,7 +189,7 @@
 &kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp GRAVE
 &kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp BACKSPACE
 &to 4    &kp Z          &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp MINUS         &kp EQUAL
-                                      &lt NUM TAB   &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &kp BACKSPACE
+                                      &lt NUM TAB   &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &lt LOWER BACKSPACE
             >;
         };
 
@@ -220,8 +220,8 @@
 
             bindings = <
 &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET      &kp AMPS      &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&none  &none     &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC   &kp UNDER      &kp MINUS     &kp EQUAL  &kp PLUS   &kp DQT   &kp SQT
-&none  &none     &none     &none     &kp PIPE  &kp BSLH   &kp FSLH       &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
+&none  &none     &kp LBKT  &kp LPAR  &kp LBRC  &kp PIPE   &kp MINUS      &kp UNDER     &kp EQUAL  &kp PLUS   &kp DQT   &kp SQT
+&none  &none     &kp RBKT  &kp RPAR  &kp RBRC  &kp BSLH   &kp FSLH       &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
                            &none     &trans    &trans     &kp BACKSPACE  &trans        &kp N2
             >;
         };
@@ -236,8 +236,8 @@
 
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp UNDER  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp BSPC   &kp INS    &kp HOME   &kp END   &trans   &trans
+&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp BSPC   &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp TAB    &kp INS    &kp HOME   &kp END   &trans   &trans
                         &trans  &trans  &kp DOT  &trans     &trans     &kp N3
             >;
         };

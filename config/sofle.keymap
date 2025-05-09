@@ -18,7 +18,7 @@
 // quick tapping for shift
 
 #define HM_TAPPING_TERM_FAST 200
-#define HM_PRIOR_IDLE 70
+#define HM_PRIOR_IDLE 100
 #define BASE 0
 #define WIN 1
 #define LOWER 2
@@ -154,11 +154,8 @@
             // But holding enter without double tapping, will activate the layer.
 
             quick-tap-ms = <200>;
-            flavor = "balanced";
-
-            // for quick tapping; shift+~
-
-            hold-trigger-on-release;
+            flavor = "hold";
+            hold-while-undecided;
         };
 
         // mouse pointer moving
@@ -192,27 +189,26 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
+    // combos {
+    //     compatible = "zmk,combos";
+        // ret {
+        //     bindings = <&kp RET>;
+        //     key-positions = <31 33>;
+        //     layers = <BASE WIN>;
+        // };
 
-        ret {
-            bindings = <&kp RET>;
-            key-positions = <31 33>;
-            layers = <BASE WIN>;
-        };
+        // esc {
+        //     bindings = <&kp ESC>;
+        //     key-positions = <26 28>;
+        //     layers = <BASE WIN>;
+        // };
 
-        esc {
-            bindings = <&kp ESC>;
-            key-positions = <26 28>;
-            layers = <BASE WIN>;
-        };
-
-        cb_tab {
-            bindings = <&kp TAB>;
-            key-positions = <13 14>;
-            layers = <BASE WIN>;
-        };
-    };
+        // cb_tab {
+        //     bindings = <&kp TAB>;
+        //     key-positions = <13 14>;
+        //     layers = <BASE WIN>;
+        // };
+    // };
 
     keymap {
         compatible = "zmk,keymap";
@@ -230,7 +226,7 @@
 &kp TAB   &kp Q          &kp W         &kp E         &kp R                &kp T                                         &kp Y      &kp U                &kp I         &kp O         &kp P             &kp BSLH
 &kp ESC   &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &lt NUM G                                     &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
 &kp LGUI  &kp Z          &kp X         &kp C         &kp V                &kp B      &tog 1            &rgb_ug RGB_TOG  &kp N      &kp M                &kp COMMA     &kp DOT       &kp FSLH          &kp GRAVE
-                         &kp CAPS      &lt NUM ESC   &lt NUM TAB          &mo LOWER  &lt NAVI SPACE    &kp ENTER        &mo RAISE  &kp BACKSPACE        &kp MINUS     &kp EQUAL
+                         &kp CAPS      &lt NUM ESC   &lt NUM TAB          &mo LOWER  &lt NAVI SPACE    &kp ENTER        &mo RAISE  &lt LOWER BSPC       &kp MINUS     &kp EQUAL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -266,8 +262,8 @@
             bindings = <
 &trans   &trans  &trans  &trans  &trans  &trans                      &trans         &trans     &trans     &trans    &trans   &trans
 &kp F11  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6         &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&none    &kp N5  &kp N4  &kp N3  &kp N2  &kp N1                      &kp ENTER      &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&kp F12  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans     &none   &kp BACKSPACE  &kp INS    &kp HOME   &kp END   &kp SQT  &trans
+&none    &kp N5  &kp N4  &kp N3  &kp N2  &kp N1                      &kp BACKSPACE  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&kp F12  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans     &none   &kp TAB        &kp INS    &kp HOME   &kp END   &kp SQT  &trans
                  &trans  &trans  &trans  &kp DOT  &kp TAB    &trans  &trans         &trans     &trans     &trans
             >;
 
