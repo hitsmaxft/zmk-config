@@ -1,34 +1,48 @@
-if SHIELD_CORNE_LEFT
+if SHIELD_CORNE_LEFT || SHIELD_CORNE_DONGLE
 
 config ZMK_KEYBOARD_NAME
 	default "Corne"
 
+config ZMK_USB
+	default y 
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
-## status led
-#config ZMK_STATUS_LED
-#    default n
-endif
+config  ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+	default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+	default y
+
+endif # END DONGLE
+
+if SHIELD_CORNE_PH_LEFT || SHIELD_CORNE_RIGHT
+
+# disable oled display
+config SSD1306
+    default n
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default n
 
 
-if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
+endif # END peripherals
+
+if SHIELD_CORNE_DONGLE || SHIELD_CORNE_LEFT || SHIELD_CORNE_PH_LEFT || SHIELD_CORNE_RIGHT
 
 config ZMK_SPLIT
 	default y
 
-endif
-if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
-
-config ZMK_SPLIT
-    default y
 
 if ZMK_DISPLAY
 
 config I2C
-    default y
-
-config SSD1306
     default y
 
 endif # ZMK_DISPLAY
@@ -50,4 +64,4 @@ endchoice
 
 endif # LVGL
 
-endif
+endif # END ALL

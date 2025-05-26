@@ -1,9 +1,7 @@
-*
 .west
 zmodules
-!config/*
-!nix/*
-!draw/*
-!.github/*
-!.envrc
-!.gitignore
+.*
+compile_commands.json
+firmware/
+modules/
+zephyr/

@@ -11,6 +11,8 @@
 };
 
 &kscan0 {
+    label = "KSCAN";
+    compatible = "zmk,kscan-gpio-matrix";
     col-gpios
         = <&pro_micro 14  GPIO_ACTIVE_HIGH>
         , <&pro_micro 15  GPIO_ACTIVE_HIGH>
@@ -20,12 +22,26 @@
         , <&pro_micro 21  GPIO_ACTIVE_HIGH>
         ;
 };
+
+
 / {
     chosen {
+      kscan = <&kscan0>;
       zmk,battery = &vbatt;
     };
 
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
+    // wakeup_scan: wakeup_scan {
+    //     compatible = "zmk,kscan-gpio-direct";
+    //     input-keys = <&soft_off_gpio_key>;
+    //     wakeup-source;
+    // };
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&kscan0>;
+    };
 };
+
+// vim: set ft=dts :

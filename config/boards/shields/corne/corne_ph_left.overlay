@@ -4,5 +4,4 @@
  * SPDX-License-Identifier: MIT
  */
 
-
-#include "corne_dongle_jm.dtsi"
+#include "corne_ph_left.dtsi"

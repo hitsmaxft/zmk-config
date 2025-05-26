@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2020 Pete Johanson
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "corne.dtsi"
+
+&kscan0 {
+    label = "KSCAN";
+    compatible = "zmk,kscan-gpio-matrix";
+    col-gpios
+		= <&pro_micro 21 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 20 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
+		;
+};
+
+// &wakeup_scan: wakeup_scan {
+//     compatible = "zmk,kscan-gpio-direct";
+//     input-keys = <&soft_off_gpio_key>;
+//     wakeup-source;
+// };
+/ {
+    chosen {
+      zmk,battery = &vbatt;
+      kscan = <&kscan0>;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+	soft_off_wakers {
+		compatible = "zmk,soft-off-wakeup-sources";
+		wakeup-sources = <&kscan0>;
+	};
+};
+
+// vim: set ft=dts :

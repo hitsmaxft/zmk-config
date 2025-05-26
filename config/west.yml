@@ -22,6 +22,8 @@ manifest:
       url-base: https://github.com/petejohanson
     - name: hitsmaxft
       url-base: https://github.com/hitsmaxft
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -60,5 +62,11 @@ manifest:
     - name: zmk-feature-status-led
       remote: hitsmaxft
       revision: main
+      path: zmodules/status-led
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
+      path: zmodules/zmk-dongle-display
+
   self:
     path: config

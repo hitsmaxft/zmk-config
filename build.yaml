@@ -15,21 +15,27 @@
 include:
   - board: nice_nano_v2
     shield: settings_reset
+    artifact: reset
   - board: nice_nano_v2
     shield: sofle_left
+    artifact: sofle_left
     snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
     shield: sofle_right
+    artifact: sofle_right
+
   - board: nice_nano_v2
-    shield: corne_left  nice_view_adapter nice_view
+    shield: corne_left dongle_display
     snippet: studio-rpc-usb-uart
-    artifact-name: corne_left
+    artifact: corne_left
+    # cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+
+  - board: nice_nano_v2
+    shield: corne_ph_left nice_view_adapter nice_view
+    artifact: corne_ph_left
+    # cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
   - board: nice_nano_v2
     shield: corne_right  nice_view_adapter nice_view
-    artifact-name: corne_right
-
-#  - board: nice_nano_v2
-#    shield: corne_left nice_view_adapter nice_view_custom
-#    snippet: studio-rpc-usb-uart
-#  - board: nice_nano_v2
-#    shield: corne_right nice_view_adapter nice_view_custom
+    artifact: corne_right
+    # cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n

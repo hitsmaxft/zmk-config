@@ -7,10 +7,12 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "corne-layouts.dtsi"
 / {
+
 	chosen {
 		zephyr,display = &oled;
 		zmk,kscan = &kscan0;
 		zmk,physical-layout = &layout_0;
+		zmk,underglow = &led_strip;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -30,18 +32,17 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6)  RC(2,7) RC(2,8) RC(2,9
 	};
 
 	 kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "col2row";
         wakeup-source;
+        row-gpios
+            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
 
-		row-gpios
-			= <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			;
     };
+
     //example https://github.com/Eloy98/le_chiff_ble_config/blob/bae029b82ab80ed76802f3c6b844ac68310fc50d/config/boards/arm/le_chiff_ble/le_chiff_ble.dts#L40
     // wakeup_scan: wakeup_scan {
     //     compatible = "zmk,kscan-gpio-direct";
@@ -52,25 +53,29 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6)  RC(2,7) RC(2,8) RC(2,9
     //     compatible = "zmk,soft-off-wakeup-sources";
     //     wakeup-sources = <&wakeup_scan>;
     // };
-    soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&kscan0>;
-    };
+
+    // ext-power {
+    //     compatible = "zmk,ext-power-generic";
+    //     label = "EXT_POWER";
+    //     control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+    //     init-delay-ms = <50>;
+    // };
+
 
     // {{{ led status start
     // Add a LED node here if not already defined by the board
-        leds {
-            compatible = "gpio-leds";
-            status_led: status_led {
-                gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-            };
-        };
+        // leds {
+        // compatible = "gpio-leds";
+        //     status_led: status_led {
+        //         gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+        //     };
+        // };
         
-        status_led_device: status_led_device {
-            compatible = "zmk,status-led";
-            //led = <&status_led>;
-            led = <&blue_led>;
-        };
+        // status_led_device: status_led_device {
+        //     compatible = "zmk,status-led";
+        //     //led = <&status_led>;
+        //     led = <&blue_led>;
+        // };
     // }}} led status 
 };
 // oled,I2c
@@ -91,25 +96,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6)  RC(2,7) RC(2,8) RC(2,9
        };
 };
 
-
 &pro_micro_i2c {
-    status = "okay";
-
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <32>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        inversion-on;
-        prechargep = <0x22>;
-    };
+    status = "disabled";
 };
 // rgb,SPI
 &pinctrl {
@@ -150,10 +138,5 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6)  RC(2,7) RC(2,8) RC(2,9
 		spi-zero-frame = <0x40>;
 		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
 	};
-};
 
-/ {
-	chosen {
-		zmk,underglow = &led_strip;
-	};
 };
