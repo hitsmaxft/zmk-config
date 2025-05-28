@@ -51,11 +51,15 @@ _build_single $board $shield $snippet $artifact *west_args:
     set -euo pipefail
     artifact="${artifact-${shield:+${shield// /+}-}${board}}"
     build_dir="{{ build / '$artifact' }}"
+    if [[ -f zephyr/module.yml ]] ; then
+        module_path_ext="$(pwd)/"
+        echo "Found local module $module_path_ext, append to west build command"
+    fi
     echo "Building firmware for $artifact..."
     echo "Running" west build -s {{zmk}}/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
     west build -s {{zmk}}/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
-        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
+        -DZMK_CONFIG="{{ config }}" ${module_path_ext:+-DZMK_EXTRA_MODULES="$module_path_ext"} ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
         build_output="$build_dir/zephyr/zmk.uf2"

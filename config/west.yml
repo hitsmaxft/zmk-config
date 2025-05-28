@@ -32,30 +32,30 @@ manifest:
       import:
         path-prefix: zmk_exts
         file: app/west.yml
-    - name: hammerbeam-slideshow
-      remote: gpeye
-      revision: main
-      path: zmk_exts/hammerbeam-slideshow
-    - name: zmk-nice-oled
-      remote: mctechnology17
-      revision: main
-      path: zmk_exts/zmk-nice-oled
-    - name: nice-view-elemental
-      remote: kevinpastor
-      revision: main
-      path: zmk_exts/nice-view-elemental
-    - name: nice-view-gem
-      remote: m165437
-      revision: main
-      path: zmk_exts/nice-view-gem
-    - name: zmk-shield-nice-view-cats
-      remote: s6t
-      revision: main
-      path: zmk_exts/zmk-shield-nice-view-cats
-    - name: nice-view-battery
-      remote: infely
-      revision: main
-      path: zmk_exts/nice-view-battery
+    # - name: hammerbeam-slideshow
+    #   remote: gpeye
+    #   revision: main
+    #   path: zmk_exts/hammerbeam-slideshow
+    # - name: zmk-nice-oled
+    #   remote: mctechnology17
+    #   revision: main
+    #   path: zmk_exts/zmk-nice-oled
+    # - name: nice-view-elemental
+    #   remote: kevinpastor
+    #   revision: main
+    #   path: zmk_exts/nice-view-elemental
+    # - name: nice-view-gem
+    #   remote: m165437
+    #   revision: main
+    #   path: zmk_exts/nice-view-gem
+    # - name: zmk-shield-nice-view-cats
+    #   remote: s6t
+    #   revision: main
+    #   path: zmk_exts/zmk-shield-nice-view-cats
+    # - name: nice-view-battery
+    #   remote: infely
+    #   revision: main
+    #   path: zmk_exts/nice-view-battery
     - name: zmk-helpers
       remote: urob
       revision: main
