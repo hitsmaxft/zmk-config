@@ -4,5 +4,5 @@ zmodules
 compile_commands.json
 firmware/
 modules/
-zephyr/
+#zephyr/
 zmk_exts

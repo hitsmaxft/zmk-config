@@ -30,9 +30,8 @@ manifest:
       revision: main
       clone-depth: 1
       import:
-        #path-prefix: zmk_exts
+        path-prefix: zmk_exts
         file: app/west.yml
-      path: zmk_exts/zmk
     - name: hammerbeam-slideshow
       remote: gpeye
       revision: main
