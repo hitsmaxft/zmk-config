@@ -1,3 +1,4 @@
+## main device and usb end point
 if SHIELD_CORNE_LEFT || SHIELD_CORNE_DONGLE
 
 config ZMK_KEYBOARD_NAME
@@ -20,6 +21,7 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
 
 endif # END DONGLE
 
+## sub device
 if SHIELD_CORNE_PH_LEFT || SHIELD_CORNE_RIGHT
 
 # disable oled display
@@ -28,12 +30,25 @@ config SSD1306
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default n
+
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default n
+
+config ZMK_USB
+    default n
+
+# 增加键盘消抖
+config ZMK_KSCAN_DEBOUNCE_PRESS_MS
+    default 5
+config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
+    default 5
 
 
 endif # END peripherals
 
+
+
+# common option 
 if SHIELD_CORNE_DONGLE || SHIELD_CORNE_LEFT || SHIELD_CORNE_PH_LEFT || SHIELD_CORNE_RIGHT
 
 config ZMK_SPLIT

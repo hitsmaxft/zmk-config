@@ -1,0 +1,7 @@
+file_format: "1"
+id: oled_display
+name: oled display addon
+type: shield
+url: https://abc.com
+requires: [i2c_oled]
+exposes: [oled_display_header]
