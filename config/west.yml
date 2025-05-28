@@ -29,44 +29,46 @@ manifest:
       remote: zmkfirmware
       revision: main
       clone-depth: 1
-      import: app/west.yml
-      path: zmodules/zmk
+      import:
+        #path-prefix: zmk_exts
+        file: app/west.yml
+      path: zmk_exts/zmk
     - name: hammerbeam-slideshow
       remote: gpeye
       revision: main
-      path: zmodules/hammerbeam-slideshow
+      path: zmk_exts/hammerbeam-slideshow
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
-      path: zmodules/zmk-nice-oled
+      path: zmk_exts/zmk-nice-oled
     - name: nice-view-elemental
       remote: kevinpastor
       revision: main
-      path: zmodules/nice-view-elemental
+      path: zmk_exts/nice-view-elemental
     - name: nice-view-gem
       remote: m165437
       revision: main
-      path: zmodules/nice-view-gem
+      path: zmk_exts/nice-view-gem
     - name: zmk-shield-nice-view-cats
       remote: s6t
       revision: main
-      path: zmodules/zmk-shield-nice-view-cats
+      path: zmk_exts/zmk-shield-nice-view-cats
     - name: nice-view-battery
       remote: infely
       revision: main
-      path: zmodules/nice-view-battery
+      path: zmk_exts/nice-view-battery
     - name: zmk-helpers
       remote: urob
       revision: main
-      path: zmodules/zmk-helpers
+      path: zmk_exts/zmk-helpers
     - name: zmk-feature-status-led
       remote: hitsmaxft
       revision: main
-      path: zmodules/status-led
+      path: zmk_exts/status-led
     - name: zmk-dongle-display
       remote: englmaxi
       revision: main
-      path: zmodules/zmk-dongle-display
+      path: zmk_exts/zmk-dongle-display
 
   self:
     path: config

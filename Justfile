@@ -8,7 +8,7 @@ draw := absolute_path('draw')
 kb := absolute_path('kb')
 flashCmd := if `uname` == 'Darwin' { "pico-dfu -y" } else {"nix/drvcopy e"}
 #zmkbase := $(find  . -maxdepth  2  -iname zmk)
-zmk := 'zmodules/zmk'
+zmk := 'zmk_exts/zmk'
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
@@ -51,7 +51,6 @@ _build_single $board $shield $snippet $artifact *west_args:
     set -euo pipefail
     artifact="${artifact-${shield:+${shield// /+}-}${board}}"
     build_dir="{{ build / '$artifact' }}"
-
     echo "Building firmware for $artifact..."
     echo "Running" west build -s {{zmk}}/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
