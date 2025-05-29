@@ -124,8 +124,9 @@ list:
 
 # update west
 update: update-config
-    west update --fetch-opt=--filter=blob:none
+    west config zephyr.base -- "zmk_exts/zephyr" 
     west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 
+    west update --fetch-opt=--filter=blob:none
 
 update-config:
     west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 

@@ -1,5 +1,6 @@
 #export ZMK_BUILD_DIR=$PWD/.build
 # ZMK_LIB_PREFIX
+
 ZEPHYR_BASE=$(west config 'zephyr.base')
 
 if [[ -n $ZEPHYR_BASE ]]
@@ -16,6 +17,6 @@ then
     export Zephyr_DIR
 else
     echo "found ZEPHYR_BASE not found: $ZEPHYR_BASE"
-
+    echo "please run just update-config"
 fi
 
