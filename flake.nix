@@ -57,9 +57,7 @@
             ];
 
             shellHook = ''
-              export Zephyr_DIR=$PWD/zmk_exts/zephyr/share/zephyr-package/cmake/
-              export ZMK_BUILD_DIR=$PWD/.build
-              export ZMK_SRC_DIR=$PWD/zmk_exts/zmk/app
+              source $PWD/nix/rc.sh
             '';
           };
         });
