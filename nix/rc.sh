@@ -9,8 +9,9 @@ then
 
     Zephyr_DIR=$ZEPHYR_BASE/share/zephyr-package/cmake/
 
-    ZMK_SRC_DIR=${LIB_BASE_DIR}/zmk/app
     LIB_BASE_DIR="$(dirname "$ZEPHYR_BASE")"
+
+    ZMK_SRC_DIR=${LIB_BASE_DIR}/zmk/app
 
     export LIB_BASE_DIR
     export ZMK_SRC_DIR

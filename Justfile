@@ -40,7 +40,7 @@ _parse_combos:
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
     #!/usr/bin/env bash
-    attrs="[.board, .shield, .snippet, .artifact]"
+    attrs="[.board, .shield, .snippet, .\"artifact-name\"]"
     filter="(($attrs | map(. // [.]) | combinations), ((.include // {})[] | $attrs)) | join(\",\")"
     echo "$(yq -r "$filter" build.yaml | grep -v "^," | grep -i "${expr/#all/.*}")"
 
@@ -49,7 +49,7 @@ _parse_targets $expr:
 _build_single $board $shield $snippet $artifact *west_args:
     #!/usr/bin/env bash
     set -euo pipefail
-    artifact="${artifact-${shield:+${shield// /+}-}${board}}"
+    artifact="${artifact:-${shield:+${shield// /+}-}${board}}"
     build_dir="{{ build / '$artifact' }}"
     if [[ ! -f zephyr/module.yml ]] ; then
         module_path_ext="$(pwd)/"
