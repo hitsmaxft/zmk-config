@@ -57,6 +57,7 @@
             ];
 
             shellHook = ''
+              export ZMK_LIB_PREFIX='zmk_ext'
               source $PWD/nix/rc.sh
             '';
           };

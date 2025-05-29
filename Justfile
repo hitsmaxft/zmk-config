@@ -51,7 +51,7 @@ _build_single $board $shield $snippet $artifact *west_args:
     set -euo pipefail
     artifact="${artifact-${shield:+${shield// /+}-}${board}}"
     build_dir="{{ build / '$artifact' }}"
-    if [[ -f zephyr/module.yml ]] ; then
+    if [[ ! -f zephyr/module.yml ]] ; then
         module_path_ext="$(pwd)/"
         echo "Found local module $module_path_ext, append to west build command"
     fi
@@ -123,10 +123,12 @@ list:
     @just _parse_targets all | sed 's/,*$//' | sort | column
 
 # update west
-update:
+update: update-config
     west update --fetch-opt=--filter=blob:none
-    west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" 
+    west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 
 
+update-config:
+    west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 
 # upgrade zephyr-sdk and python dependencies
 upgrade-sdk:
     nix flake update --flake .
