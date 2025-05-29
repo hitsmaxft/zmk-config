@@ -2,28 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
-    - name: gpeye
-      url-base: https://github.com/GPeye
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
-    - name: kevinpastor
-      url-base: https://github.com/kevinpastor
-    - name: m165437
-      url-base: https://github.com/M165437
-    - name: s6t
-      url-base: https://github.com/s6t
-    - name: infely
-      url-base: https://github.com/infely
-    - name: urob
-      url-base: https://github.com/urob
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
     - name: hitsmaxft
       url-base: https://github.com/hitsmaxft
-    - name: englmaxi
-      url-base: https://github.com/englmaxi
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -32,42 +12,8 @@ manifest:
       import:
         path-prefix: zmk_exts
         file: app/west.yml
-    # - name: hammerbeam-slideshow
-    #   remote: gpeye
-    #   revision: main
-    #   path: zmk_exts/hammerbeam-slideshow
-    # - name: zmk-nice-oled
-    #   remote: mctechnology17
-    #   revision: main
-    #   path: zmk_exts/zmk-nice-oled
-    # - name: nice-view-elemental
-    #   remote: kevinpastor
-    #   revision: main
-    #   path: zmk_exts/nice-view-elemental
-    # - name: nice-view-gem
-    #   remote: m165437
-    #   revision: main
-    #   path: zmk_exts/nice-view-gem
-    # - name: zmk-shield-nice-view-cats
-    #   remote: s6t
-    #   revision: main
-    #   path: zmk_exts/zmk-shield-nice-view-cats
-    # - name: nice-view-battery
-    #   remote: infely
-    #   revision: main
-    #   path: zmk_exts/nice-view-battery
-    - name: zmk-helpers
-      remote: urob
-      revision: main
-      path: zmk_exts/zmk-helpers
-    - name: zmk-feature-status-led
-      remote: hitsmaxft
-      revision: main
-      path: zmk_exts/status-led
-    - name: zmk-dongle-display
-      remote: englmaxi
-      revision: main
-      path: zmk_exts/zmk-dongle-display
-
   self:
     path: config
+    import:
+      file: deps.yml
+      path-prefix: zmk_exts
