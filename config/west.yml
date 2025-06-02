@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: hitsmaxft
       url-base: https://github.com/hitsmaxft
-    - name: local
-      url-base: file://.
   projects:
     - name: zmk
       remote: zmkfirmware

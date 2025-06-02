@@ -51,15 +51,19 @@ _build_single $board $shield $snippet $artifact *west_args:
     set -euo pipefail
     artifact="${artifact:-${shield:+${shield// /+}-}${board}}"
     build_dir="{{ build / '$artifact' }}"
-    if [[ ! -f zephyr/module.yml ]] ; then
+
+    CMAKE_ARGS=""
+
+    if [[ -f zephyr/module.yml ]] ; then
         module_path_ext="$(pwd)/"
-        echo "Found local module $module_path_ext, append to west build command"
+        echo "Found local module $module_path_ext, append to west build command, but ignored"
+        CMAKE_ARGS="-DZMK_EXTRA_MODULES=$(pwd)"
     fi
     echo "Building firmware for $artifact..."
     echo "Running" west build -s $ZMK_SRC_DIR -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${module_path_ext:+-DZMK_EXTRA_MODULES="$module_path_ext"} ${shield:+-DSHIELD="$shield"}
     west build -s $ZMK_SRC_DIR -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
-        -DZMK_CONFIG="{{ config }}" ${module_path_ext:+-DZMK_EXTRA_MODULES="$module_path_ext"} ${shield:+-DSHIELD="$shield"}
+        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
         build_output="$build_dir/zephyr/zmk.uf2"
@@ -125,6 +129,7 @@ list:
 # update west
 update: update-config
     west config zephyr.base -- "zmk_exts/zephyr" 
+    #west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 
     west config build.cmake-args -- "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=$(pwd)" 
     west update --fetch-opt=--filter=blob:none
 
