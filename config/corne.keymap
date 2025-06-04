@@ -178,6 +178,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
@@ -194,6 +195,7 @@
         };
 
         win_layer {
+            display-name = "Windows";
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
@@ -210,6 +212,7 @@
         };
 
         Symbol_layer {
+            display-name = "Symbols";
             // TODO: Some binds are waiting for shifted keycode support.
             // -------------------------------
             // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
@@ -227,6 +230,7 @@
         };
 
         Mix_layer {
+            display-name = "Mix";
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
             // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
@@ -243,6 +247,7 @@
         };
 
         Adjust_layer {
+            display-name = "Adjust";
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -259,6 +264,7 @@
         };
 
         Navi_layer {
+            display-name = "Navi";
             bindings = <
 &none  &none  &none           &mmv MOVE_UP    &kp PAGE_UP      &kp PAGE_DOWN   &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN  &none
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
@@ -268,6 +274,7 @@
         };
 
         KeyPad_layer {
+            display-name = "NumPad";
             bindings = <
 &mo DEBUG  &none  &none  &none  &none  &none      &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
 &none      &none  &none  &none  &none  &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
@@ -277,6 +284,7 @@
         };
 
         Debug_layer {
+            display-name = "Debug";
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | EXTPWR | BTCLR | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
