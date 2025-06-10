@@ -250,8 +250,8 @@
             bindings = <
 &trans     &trans    &trans    &trans    &trans    &trans                              &trans     &trans     &trans     &trans    &trans    &trans
 &kp GRAVE  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp PIPE
-&none      &none     &kp LBKT  &kp LPAR  &kp LBRC  &kp PIPE                            &kp MINUS  &kp UNDER  &kp EQUAL  &kp PLUS  &kp DQT   &none
-&trans     &none     &kp RBKT  &kp RPAR  &kp RBRC  &kp BSLH   &trans    &trans         &kp FSLH   &kp QMARK  &kp GRAVE  &kp TILDE &kp SQT  &trans
+&none      &none     &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC                            &kp MINUS  &kp UNDER  &kp EQUAL  &kp PLUS  &kp DQT   &none
+&trans     &none     &none     &none     &kp PIPE  &kp BSLH   &trans    &trans         &kp FSLH   &kp QMARK  &kp GRAVE  &kp TILDE &kp SQT  &trans
                      &trans    &trans    &kp ESC   &trans     &trans    &kp BACKSPACE  &trans     &trans     &trans     &trans
             >;
 

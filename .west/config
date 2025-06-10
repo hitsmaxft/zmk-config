@@ -6,5 +6,5 @@ file = west.yml
 base = zmk_exts/zephyr
 
 [build]
-cmake-args = -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DZMK_EXTRA_MODULES=/Users/qixiang/Projects/keyboards/zmk-for-keyboards
+cmake-args = -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
