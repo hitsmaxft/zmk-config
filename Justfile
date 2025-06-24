@@ -85,8 +85,7 @@ build expr *west_args: _parse_combos
 
 
     [[ -z $targets ]] && echo "No matching targets found. Aborting..." >&2 && exit 1
-    echo "Current build target $targets"
-    echo "$targets" | while IFS=, read -r board shield snippet artifact; do
+    echo "$targets" | while ifs=, read -r board shield snippet artifact; do
         just _build_single "$board" "$shield" "$snippet" "$artifact" {{ west_args }}
     done
 
@@ -124,7 +123,20 @@ init:
 
 # list build targets
 list:
-    @just _parse_targets all | sed 's/,*$//' | sort | column
+    #!/usr/bin/env python3
+    import subprocess
+
+    # Run the command and capture its output
+    result = subprocess.run(['just', '_parse_targets', 'all'], capture_output=True, text=True, check=True)
+
+    # Split output into a list by lines
+    arr = result.stdout.splitlines()
+
+    # Print each line
+    for item in arr:
+        (board, shield, snippet, artifact) = item.split(',')
+        print(f"{artifact}: board={board}, shield={shield}, snippet={snippet}")
+
 
 # update west
 update: update-config
