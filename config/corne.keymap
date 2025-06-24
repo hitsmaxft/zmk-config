@@ -179,6 +179,7 @@
 
         default_layer {
             display-name = "Base";
+
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
@@ -187,15 +188,16 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I          &kp O         &kp P             &kp BSLH
-&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K   &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT 
-&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp BACKSPACE 
+&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T           &kp Y      &kp U                &kp I                &kp O         &kp P             &kp BSLH
+&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G           &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K         &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
+&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B           &kp N      &kp M                &kp COMMA            &kp DOT       &kp FSLH          &kp BACKSPACE
                                       &lt NUM TAB   &mo LOWER            &lt NAVI SPACE  &kp ENTER  &mo RAISE            &lt LOWER BACKSPACE
             >;
         };
 
         win_layer {
             display-name = "Windows";
+
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
@@ -213,6 +215,7 @@
 
         Symbol_layer {
             display-name = "Symbols";
+
             // TODO: Some binds are waiting for shifted keycode support.
             // -------------------------------
             // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
@@ -231,6 +234,7 @@
 
         Mix_layer {
             display-name = "Mix";
+
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
             // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
@@ -239,15 +243,16 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6     &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp BSPC   &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp TAB    &kp INS    &kp HOME   &kp END   &trans   &trans
-                        &trans  &trans  &kp DOT  &trans     &trans     &kp N3
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
+&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1   &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
+                        &trans  &trans  &kp DOT  &trans    &trans     &kp N3
             >;
         };
 
         Adjust_layer {
             display-name = "Adjust";
+
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -276,15 +281,16 @@
         KeyPad_layer {
             display-name = "NumPad";
             bindings = <
-&mo DEBUG  &none  &none  &none  &none  &none      &kp KP_N7        &kp KP_N8        &kp KP_N9  &none  &none  &none
-&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &none  &none  &none
-&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none  &none  &none
-                         &none  &none  &mo DEBUG  &kp KP_N0        &none            &kp N6
+&mo DEBUG  &none  &none  &none  &none  &none      &kp KP_N7        &kp KP_N8        &kp KP_N9        &kp KP_MINUS  &kp KP_MULTIPLY  &none
+&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6        &kp KP_PLUS   &kp KP_DIVIDE    &none
+&none      &none  &none  &none  &none  &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3        &none         &none            &none
+                         &none  &none  &mo DEBUG  &kp KP_N0        &kp KP_DOT       &kp KP_NUMBER_0
             >;
         };
 
         Debug_layer {
             display-name = "Debug";
+
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | EXTPWR | BTCLR | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
